@@ -6,9 +6,12 @@ MLDCAT-AP -- is an application profile, aimed to extend the use of DCAT-AP, orig
 
 Original repository favors very fine-grained SHACL shapes modularity and the ability to turn on and off single constraints of a shape.
 
-This repository aimed at a different goal -- to boost profile SHACL shapes readability and handcraft manipulations by humans, not robots.
+This repository aimed at a little different goals (but in a compatible way: all of this repo enhancements should be compatible with original repo):
 
-But in a compatible way: all of this repo enhancements should be compatible with original repo.
+1. SHACL shapes should be human-readable and allows handcraft manipulations by humans, not robots.
+
+2. SHACL shapes spec should be IDE-friendly (VS Code).
+- camelCase identifiers for properties (spellchecker friendly)
 
 ## Quick Readability Example
 

@@ -1,0 +1,25 @@
+{
+    "cSpell.enableFiletypes": [
+        "turtle"
+    ],
+    "cSpell.words": [
+        "adms",
+        "DCAT",
+        "dcterm",
+        "dcterms",
+        "foaf",
+        "linkset",
+        "lpwc",
+        "MLDCAT",
+        "mldcatap",
+        "mlso",
+        "odrl",
+        "rdfs",
+        "SHACL",
+        "skos",
+        "stdev",
+        "triplestore",
+        "triplestores"
+    ],
+    "cSpell.language": "en, scientific-terms-us"
+}
