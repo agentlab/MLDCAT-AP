@@ -169,7 +169,7 @@ mldcatap2:CatalogShape a shacl:NodeShape;
     mldcatap2:CatalogShape.homepage,
     mldcatap2:CatalogShape.identifier,
     mldcatap2:CatalogShape.keyword,
-    mldcatap2:CatalogShape.licence,
+    mldcatap2:CatalogShape.license,
     mldcatap2:CatalogShape.modificationdate,
     mldcatap2:CatalogShape.publisher,
     mldcatap2:CatalogShape.record,
@@ -221,9 +221,9 @@ mldcatap2:CatalogShape.keyword rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP
   shacl:path dcat:keyword;
   shacl:nodeKind shacl:Literal .
 
-mldcatap2:CatalogShape.licence rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.licence";
-  shacl:name "licence"@en;
-  shacl:description "A licence under which the Catalogue can be used or reused."@en;
+mldcatap2:CatalogShape.license rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.license";
+  shacl:name "license"@en;
+  shacl:description "A license under which the Catalogue can be used or reused."@en;
   shacl:path dcterm:license;
   #shacl:nodeKind shacl:BlankNodeOrIRI;
   shacl:class dcterm:LicenseDocument;
@@ -238,7 +238,7 @@ mldcatap2:CatalogShape.modificationdate rdfs:seeAlso "https://semiceu.github.io/
 
 mldcatap2:CatalogShape.publisher rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.publisher";
   shacl:name "publisher"@en;
-  shacl:description "An entity (organisation) responsible for making the Catalogue available."@en;
+  shacl:description "An entity (organization) responsible for making the Catalogue available."@en;
   shacl:path dcterm:publisher;
   #shacl:nodeKind shacl:BlankNodeOrIRI;
   shacl:class foaf:Agent;
@@ -385,7 +385,7 @@ mldcatap2:CollectionShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLD
 
 mldcatap2:CollectionShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.title";
   shacl:name "title"@en;
-  shacl:description "A name assigned to the resourse."@en;
+  shacl:description "A name assigned to the resource."@en;
   shacl:path dcterm:title;
   shacl:nodeKind shacl:Literal;
   shacl:minCount 1;
@@ -519,7 +519,7 @@ mldcatap2:DatasetShape.landingpage rdfs:seeAlso "https://semiceu.github.io/MLDCA
 
 mldcatap2:DatasetShape.publisher rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.publisher";
   shacl:name "publisher"@en;
-  shacl:description "An entity (organisation) responsible for making the resource available."@en;
+  shacl:description "An entity (organization) responsible for making the resource available."@en;
   shacl:path dcterm:publisher;
   #shacl:nodeKind shacl:BlankNodeOrIRI;
   shacl:class foaf:Agent;
@@ -755,7 +755,7 @@ mldcatap2:DistributionShape.language rdfs:seeAlso "https://semiceu.github.io/MLD
 
 mldcatap2:DistributionShape.license rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.license";
   shacl:name "license"@en;
-  shacl:description "A licence under which the Distribution is made available."@en;
+  shacl:description "A license under which the Distribution is made available."@en;
   shacl:path dcterm:license;
   #shacl:nodeKind shacl:BlankNodeOrIRI;
   shacl:class dcterm:LicenseDocument;
@@ -1284,7 +1284,7 @@ mldcatap2:MachineLearningModelShape a shacl:NodeShape;
     mldcatap2:MachineLearningModelShape.intendeduse,
     mldcatap2:MachineLearningModelShape.keyword,
     mldcatap2:MachineLearningModelShape.language,
-    mldcatap2:MachineLearningModelShape.licence,
+    mldcatap2:MachineLearningModelShape.license,
     mldcatap2:MachineLearningModelShape.limitations,
     mldcatap2:MachineLearningModelShape.logo,
     mldcatap2:MachineLearningModelShape.name,
@@ -1440,9 +1440,9 @@ mldcatap2:MachineLearningModelShape.language rdfs:seeAlso "https://semiceu.githu
   #shacl:nodeKind shacl:BlankNodeOrIRI;
   shacl:class dcterm:LinguisticSystem .
 
-mldcatap2:MachineLearningModelShape.licence rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.licence";
-  shacl:name "licence"@en;
-  shacl:description "The licence under which the resource is made available."@en;
+mldcatap2:MachineLearningModelShape.license rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.license";
+  shacl:name "license"@en;
+  shacl:description "The license under which the resource is made available."@en;
   shacl:path dcterm:license;
   #shacl:nodeKind shacl:BlankNodeOrIRI;
   shacl:class dcterm:LicenseDocument .
@@ -1469,9 +1469,10 @@ mldcatap2:MachineLearningModelShape.name rdfs:seeAlso "https://semiceu.github.io
   shacl:minCount 1;
   shacl:maxCount 1 .
 
-mldcatap2:MachineLearningModelShape.runnedon rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.runnedon";
+  # FIXME: Typo
   shacl:name "runned on"@en;
   shacl:description "The dataset on which a machine learning mode is executed."@en;
+  # FIXME: Typo
   shacl:path it6:runnedOn;
   #shacl:nodeKind shacl:BlankNodeOrIRI;
   shacl:class dcat:Dataset .
