@@ -13,6 +13,10 @@ This repository aimed at a little different goals (but in a compatible way: all 
 2. SHACL shapes spec should be IDE-friendly (VS Code).
 - camelCase identifiers for properties (spellchecker friendly)
 
+1. Shapes is NOT an "domain-isolated case", it should play nicely with other "non-DCAT" shapes and vocabularies in the same triplestore to allow data integration from different domains.
+ - No conflicting prefixes
+ - No undefined Classes in shapes
+
 ## Quick Readability Example
 
 One quick example of enhancements just for one `publisher` property of `dcat:Catalog` class.
@@ -39,7 +43,7 @@ Before:
 
 # 'publisher' property shape with nodeKind constraint
 <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#CatalogShape/93f73e69bb03d2928fcf758a253ef316becdf9b9> rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.publisher";
-  shacl:description "An entity (organisation) responsible for making the Catalogue available."@en;
+  shacl:description "An entity (organization) responsible for making the Catalogue available."@en;
   shacl:name "publisher"@en;
   shacl:nodeKind shacl:BlankNodeOrIRI;
   shacl:path dc:publisher .
@@ -64,25 +68,62 @@ After:
 ```turtle
 # dc -> dcterm replacement for better DCAT 3 compatibility
 @prefix dcterm: <http://purl.org/dc/terms/> .
+# shacl -> sh replacement for better W3C SHACL Shapes spec compatibility
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 
 # Added MLDCAT-AP 2 prefix
 @prefix mldcatap2: <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#> .
 
-mldcatap2:CatalogShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:CatalogShape.publisher;
-  shacl:targetClass dcat:Catalog .
+mldcatap2:CatalogShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:CatalogShape.publisher;
+  sh:targetClass dcat:Catalog .
 
 # all 'publisher' property shape constraints in one place!!!
 mldcatap2:CatalogShape.publisher rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.publisher";
-  shacl:name "publisher"@en;
-  shacl:description "An entity (organisation) responsible for making the Catalogue available."@en;
-  shacl:path dcterm:publisher;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class foaf:Agent;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "publisher"@en;
+  sh:description "An entity (organization) responsible for making the Catalogue available."@en;
+  sh:path dcterm:publisher;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class foaf:Agent;
+  sh:minCount 1;
+  sh:maxCount 1 .
 ```
+
+## Quick Play Nicely Example
+
+Before:
+
+```turtle
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix shacl: <http://www.w3.org/ns/shacl#> .
+```
+
+After:
+
+```turtle
+# Some prefixes replaced for better DCAT 3 compatibility
+# dc -> dcterm for DCAT 3 compatibility
+@prefix dcterm: <http://purl.org/dc/terms/> .
+# shacl -> sh for W3C SHACL recommended prefix
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+```
+
+According to the prefix lookup service https://prefix.cc
+
+dct -- (best one) has no collisions and resolves only to the correct URL http://purl.org/dc/terms/
+dcterms -- (good enough) has some collisions, but according to voters resolves to the correct URL http://purl.org/dc/terms/. It is used internally by Dublin Core specs itself.
+dc -- (the worst) has collisions and resolves to the different URL http://purl.org/dc/elements/1.1/
+
+To summarize:
+
+The "dc" prefix should be changed to "dcterms" in MLDCAT-AP for the following reasons:
+
+To avoid the internal collisions with DCAT 3 (if someone loads DCAT 3 ontology and MLDCAT AP shapes into the same triplestore).
+To avoid the bloating of a triplestore prefix space for no good reason ("dc" and "dcterms" prefixes refers to the same http://purl.org/dc/terms/). Triplestores tends to save prefixes from uploaded files so its better to have some compatibility here.
+And to avoid collisions with http://purl.org/dc/elements/1.1/.
+
+
 ## Proposed Enhancements to boost human-readability and handcraft file manipulations
 - more namespace prefixes from MLDCAT-AP HTML Documentation
 - multiple 'one-constraint property shapes' for the same shacl:path collapsed into one big property shape

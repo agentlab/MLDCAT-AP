@@ -5,21 +5,22 @@
 ##
 ## Enhancements to boost human-readability and handcraft file manipulations:
 ##  - more namespace prefixes from HTML Documentation
-##  - multiple 'one-constraint property shapes' for the same shacl:path collapsed into one big property shape
+##  - multiple 'one-constraint property shapes' for the same sh:path collapsed into one big property shape
 ##  - property shape's IRI changed to more human readable based on 'rdfs:seeAlso'
-##  - prefix 'dc' replaced with 'dcterm' to align with DCAT 3
+##  - prefix 'dc' replaced with 'dcterms' to align with DCAT 3
 ##  - added MLDCAT-AP 2 prefix 'mldcatap2'
-##  - broad type constraints (shacl:BlankNodeOrIRI or shacl:Literal) commented out if there are narrower ones
+##  - broad type constraints (sh:BlankNodeOrIRI or sh:Literal) commented out if there are narrower ones
 ##  - property shapes statements layout is changed for better readability: name and description -- goes first, then path, then type constraints, then cardinality constraints
 
-# dc -> dcterm replacement for better DCAT 3 compatibility
-@prefix dcterm: <http://purl.org/dc/terms/> .
+# dc -> dcterms replacement for better DCAT 3 compatibility
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix shacl: <http://www.w3.org/ns/shacl#> .
+# shacl -> sh replacement for better W3C SHACL Shapes spec compatibility
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -97,73 +98,73 @@
     mldcatap2:TemporalLiteralShape .
 
 
-mldcatap2:AgentShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:AgentShape.name;
-  shacl:targetClass foaf:Agent .
+mldcatap2:AgentShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:AgentShape.name;
+  sh:targetClass foaf:Agent .
 
 mldcatap2:AgentShape.name rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Agent.name";
-  shacl:path foaf:name;
-  shacl:name "name"@en;
-  shacl:description "A name of the agent."@en;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1 .
+  sh:path foaf:name;
+  sh:name "name"@en;
+  sh:description "A name of the agent."@en;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1 .
 
 
-mldcatap2:AlgorithmShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:AlgorithmShape.hasAlgorithmType,
+mldcatap2:AlgorithmShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:AlgorithmShape.hasAlgorithmType,
     mldcatap2:AlgorithmShape.hasLearningMethodType;
-  shacl:targetClass mls:Algorithm .
+  sh:targetClass mls:Algorithm .
 
 mldcatap2:AlgorithmShape.hasAlgorithmType rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Algorithm.hasalgorithmtype";
-  shacl:name "has algorithm type"@en;
-  shacl:description "A relation between an algorithm the category of algorithms that belongs to."@en;
-  shacl:path mlso:hasAlgorithmType;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class skos:Concept .
+  sh:name "has algorithm type"@en;
+  sh:description "A relation between an algorithm the category of algorithms that belongs to."@en;
+  sh:path mlso:hasAlgorithmType;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class skos:Concept .
 
 mldcatap2:AlgorithmShape.hasLearningMethodType rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Algorithm.haslearningmethodtype";
-  shacl:name "has learning method type"@en;
-  shacl:description "A relation between an algorithm learning method and the category of algorithm learning methods that it belongs to."@en;
-  shacl:path mlso:hasLearningMethodType;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class skos:Concept;
-  shacl:maxCount 1 .
+  sh:name "has learning method type"@en;
+  sh:description "A relation between an algorithm learning method and the category of algorithm learning methods that it belongs to."@en;
+  sh:path mlso:hasLearningMethodType;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class skos:Concept;
+  sh:maxCount 1 .
 
 
-mldcatap2:BibliographicReferenceShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:BibliographicReferenceShape.bibliographicCitation,
+mldcatap2:BibliographicReferenceShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:BibliographicReferenceShape.bibliographicCitation,
     mldcatap2:BibliographicReferenceShape.format,
     mldcatap2:BibliographicReferenceShape.references;
-  shacl:targetClass biro:BibliographicReference .
+  sh:targetClass biro:BibliographicReference .
 
 mldcatap2:BibliographicReferenceShape.bibliographicCitation rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#BibliographicReference.bibliographiccitation";
-  shacl:name "bibliographic citation"@en;
-  shacl:path dcterm:bibliographicCitation;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "bibliographic citation"@en;
+  sh:path dcterms:bibliographicCitation;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:BibliographicReferenceShape.format rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#BibliographicReference.format";
-  shacl:name "format"@en;
-  shacl:path dcterm:format;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "format"@en;
+  sh:path dcterms:format;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:BibliographicReferenceShape.references rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#BibliographicReference.references";
-  shacl:name "references"@en;
-  shacl:description "A related resource that is referenced, cited, or otherwise pointed to by the described resource."@en;
-  shacl:path dcterm:references;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class lpwc:paper .
+  sh:name "references"@en;
+  sh:description "A related resource that is referenced, cited, or otherwise pointed to by the described resource."@en;
+  sh:path dcterms:references;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class lpwc:paper .
 
 
-mldcatap2:CatalogShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:CatalogShape.creator,
+mldcatap2:CatalogShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:CatalogShape.creator,
     mldcatap2:CatalogShape.dataset,
     mldcatap2:CatalogShape.description,
     mldcatap2:CatalogShape.homepage,
@@ -176,178 +177,178 @@ mldcatap2:CatalogShape a shacl:NodeShape;
     mldcatap2:CatalogShape.releaseDate,
     mldcatap2:CatalogShape.service,
     mldcatap2:CatalogShape.title;
-  shacl:targetClass dcat:Catalog .
+  sh:targetClass dcat:Catalog .
 
 
 mldcatap2:CatalogShape.creator rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.creator";
-  shacl:name "creator"@en;
-  shacl:description "An entity responsible for the creation of the catalogue."@en;
-  shacl:path dcterm:creator;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class foaf:Agent;
-  shacl:maxCount 1 .
+  sh:name "creator"@en;
+  sh:description "An entity responsible for the creation of the catalogue."@en;
+  sh:path dcterms:creator;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class foaf:Agent;
+  sh:maxCount 1 .
 
 mldcatap2:CatalogShape.dataset rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.dataset";
-  shacl:name "dataset"@en;shacl:path dcat:dataset;
-  shacl:description "A Dataset that is part of the Catalogue."@en;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:Dataset .
+  sh:name "dataset"@en;sh:path dcat:dataset;
+  sh:description "A Dataset that is part of the Catalogue."@en;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:Dataset .
 
 mldcatap2:CatalogShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.description";
-  shacl:name "description"@en;
-  shacl:description "A free-text account of the Catalogue."@en;
-  shacl:path dcterm:description;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1 .
+  sh:name "description"@en;
+  sh:description "A free-text account of the Catalogue."@en;
+  sh:path dcterms:description;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1 .
 
 mldcatap2:CatalogShape.homepage rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.homepage";
-  shacl:name "homepage"@en;
-  shacl:description "A web page that acts as the main page for the Catalogue."@en;
-  shacl:path foaf:homepage;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class foaf:Document;
-  shacl:maxCount 1 .
+  sh:name "homepage"@en;
+  sh:description "A web page that acts as the main page for the Catalogue."@en;
+  sh:path foaf:homepage;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class foaf:Document;
+  sh:maxCount 1 .
 
 mldcatap2:CatalogShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.identifier";
-  shacl:name "identifier"@en;
-  shacl:description "A unique identifier of the item."@en;
-  shacl:path dcterm:identifier;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "identifier"@en;
+  sh:description "A unique identifier of the item."@en;
+  sh:path dcterms:identifier;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:CatalogShape.keyword rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.keyword";
-  shacl:name "keyword"@en;
-  shacl:description "A keyword or tag describing the resource."@en;
-  shacl:path dcat:keyword;
-  shacl:nodeKind shacl:Literal .
+  sh:name "keyword"@en;
+  sh:description "A keyword or tag describing the resource."@en;
+  sh:path dcat:keyword;
+  sh:nodeKind sh:Literal .
 
 mldcatap2:CatalogShape.license rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.license";
-  shacl:name "license"@en;
-  shacl:description "A license under which the Catalogue can be used or reused."@en;
-  shacl:path dcterm:license;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcterm:LicenseDocument;
-  shacl:maxCount 1 .
+  sh:name "license"@en;
+  sh:description "A license under which the Catalogue can be used or reused."@en;
+  sh:path dcterms:license;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcterms:LicenseDocument;
+  sh:maxCount 1 .
 
 mldcatap2:CatalogShape.modificationDate rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.modificationdate";
-  shacl:name "modification date"@en;
-  shacl:description "The most recent date on which the Catalogue was modified."@en;
-  shacl:path dcterm:modified;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "modification date"@en;
+  sh:description "The most recent date on which the Catalogue was modified."@en;
+  sh:path dcterms:modified;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:CatalogShape.publisher rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.publisher";
-  shacl:name "publisher"@en;
-  shacl:description "An entity (organization) responsible for making the Catalogue available."@en;
-  shacl:path dcterm:publisher;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class foaf:Agent;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "publisher"@en;
+  sh:description "An entity (organization) responsible for making the Catalogue available."@en;
+  sh:path dcterms:publisher;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class foaf:Agent;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:CatalogShape.record rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.record";
-  shacl:name "record"@en;
-  shacl:description "A Catalogue Record that is part of the Catalogue."@en;
-  shacl:path dcat:record;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:CatalogRecord .
+  sh:name "record"@en;
+  sh:description "A Catalogue Record that is part of the Catalogue."@en;
+  sh:path dcat:record;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:CatalogRecord .
 
 mldcatap2:CatalogShape.releaseDate rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.releasedate";
-  shacl:name "release date"@en;
+  sh:name "release date"@en;
   # Fixed description literal
-  shacl:description "The date of formal issuance (e.g., publication) of the Catalogue."@en;
-  shacl:path dcterm:issued;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:description "The date of formal issuance (e.g., publication) of the Catalogue."@en;
+  sh:path dcterms:issued;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:CatalogShape.service rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.service";
-  shacl:name "service"@en;
-  shacl:description "A site or end-point (Data Service) that is listed in the Catalogue."@en;
-  shacl:path dcat:service;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:DataService .
+  sh:name "service"@en;
+  sh:description "A site or end-point (Data Service) that is listed in the Catalogue."@en;
+  sh:path dcat:service;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:DataService .
 
 mldcatap2:CatalogShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.title";
-  shacl:name "title"@en;
-  shacl:description "A name given to the Catalogue."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1 .
+  sh:name "title"@en;
+  sh:description "A name given to the Catalogue."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1 .
 
 
-mldcatap2:CatalogRecordShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:CatalogRecordShape.description,
+mldcatap2:CatalogRecordShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:CatalogRecordShape.description,
     mldcatap2:CatalogRecordShape.descriptionVersion,
     mldcatap2:CatalogRecordShape.modificationDate,
     mldcatap2:CatalogRecordShape.primaryTopic;
-  shacl:targetClass dcat:CatalogRecord .
+  sh:targetClass dcat:CatalogRecord .
 
 mldcatap2:CatalogRecordShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#CatalogueRecord.description";
-  shacl:name "description"@en;
-  shacl:description "A free-text account of the record."@en;
-  shacl:path dcterm:description;
-  shacl:nodeKind shacl:Literal .
+  sh:name "description"@en;
+  sh:description "A free-text account of the record."@en;
+  sh:path dcterms:description;
+  sh:nodeKind sh:Literal .
 
 mldcatap2:CatalogRecordShape.descriptionVersion rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#CatalogueRecord.descriptionversion";
-  shacl:name "description version"@en;
-  shacl:description "It refers to the version of the description. '1' for original version."@en;
-  shacl:path it6:descriptionVersion;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "description version"@en;
+  sh:description "It refers to the version of the description. '1' for original version."@en;
+  sh:path it6:descriptionVersion;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:CatalogRecordShape.modificationDate rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#CatalogueRecord.modificationdate";
-  shacl:name "modification date"@en;
-  shacl:description "The most recent date on which the Catalogue entry was changed or modified."@en;
-  shacl:path dcterm:modified;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "modification date"@en;
+  sh:description "The most recent date on which the Catalogue entry was changed or modified."@en;
+  sh:path dcterms:modified;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:CatalogRecordShape.primaryTopic rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#CatalogueRecord.primarytopic";
-  shacl:name "primary topic"@en;
-  shacl:description "A link to the Dataset, Data service or Catalog described in the record."@en;
-  shacl:path foaf:primaryTopic;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:Resource;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "primary topic"@en;
+  sh:description "A link to the Dataset, Data service or Catalog described in the record."@en;
+  sh:path foaf:primaryTopic;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:Resource;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
-mldcatap2:ChecksumShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:ChecksumShape.algorithm,
+mldcatap2:ChecksumShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:ChecksumShape.algorithm,
     mldcatap2:ChecksumShape.checksumValue;
-  shacl:targetClass spdx:Checksum .
+  sh:targetClass spdx:Checksum .
 
 mldcatap2:ChecksumShape.algorithm rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Checksum.algorithm";
-  shacl:name "algorithm"@en;
-  shacl:description "The algorithm used to produce the subject Checksum."@en;
-  shacl:path spdx:algorithm;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class spdx:ChecksumAlgorithm;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "algorithm"@en;
+  sh:description "The algorithm used to produce the subject Checksum."@en;
+  sh:path spdx:algorithm;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class spdx:ChecksumAlgorithm;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:ChecksumShape.checksumValue rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Checksum.checksumvalue";
-  shacl:name "checksum value"@en;
-  shacl:description "A lower case hexadecimal encoded digest value produced using a specific algorithm."@en;
-  shacl:path spdx:checksumValue;
-  #shacl:nodeKind shacl:Literal;
-  shacl:datatype xsd:hexBinary;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "checksum value"@en;
+  sh:description "A lower case hexadecimal encoded digest value produced using a specific algorithm."@en;
+  sh:path spdx:checksumValue;
+  #sh:nodeKind sh:Literal;
+  sh:datatype xsd:hexBinary;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
-mldcatap2:ChecksumAlgorithmShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass spdx:ChecksumAlgorithm .
+mldcatap2:ChecksumAlgorithmShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass spdx:ChecksumAlgorithm .
 
 
-mldcatap2:CollectionShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass it6:Collection;
-  shacl:property mldcatap2:CollectionShape.creationDate,
+mldcatap2:CollectionShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass it6:Collection;
+  sh:property mldcatap2:CollectionShape.creationDate,
     mldcatap2:CollectionShape.description,
     mldcatap2:CollectionShape.hasUploader,
     mldcatap2:CollectionShape.identifier,
@@ -355,64 +356,64 @@ mldcatap2:CollectionShape a shacl:NodeShape;
     mldcatap2:CollectionShape.visibility .
 
 mldcatap2:CollectionShape.creationDate rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.creationdate";
-  shacl:name "creation date"@en;
-  shacl:path it6:creationDate;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "creation date"@en;
+  sh:path it6:creationDate;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:CollectionShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.description";
-  shacl:name "description"@en;
-  shacl:path dcterm:description;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "description"@en;
+  sh:path dcterms:description;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:CollectionShape.hasUploader rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.hasuploader";
-  shacl:name "has uploader"@en;
-  shacl:path it6:hasUploader;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class foaf:Agent;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "has uploader"@en;
+  sh:path it6:hasUploader;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class foaf:Agent;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:CollectionShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.identifier";
-  shacl:name "identifier"@en;
-  shacl:description "An unambiguous identifier for the resource."@en;
-  shacl:path dcterm:identifier;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "identifier"@en;
+  sh:description "An unambiguous identifier for the resource."@en;
+  sh:path dcterms:identifier;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:CollectionShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.title";
-  shacl:name "title"@en;
-  shacl:description "A name assigned to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "title"@en;
+  sh:description "A name assigned to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:CollectionShape.visibility rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.visibility";
-  shacl:name "visibility"@en;
-  shacl:path it6:visibility;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class skos:Concept;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "visibility"@en;
+  sh:path it6:visibility;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class skos:Concept;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
-mldcatap2:ConceptShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass skos:Concept .
+mldcatap2:ConceptShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass skos:Concept .
 
 
-mldcatap2:CostMatrixShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass it6:CostMatrix .
+mldcatap2:CostMatrixShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass it6:CostMatrix .
 
 
-mldcatap2:DatasetShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:DatasetShape.accessRights,
+mldcatap2:DatasetShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:DatasetShape.accessRights,
     mldcatap2:DatasetShape.collectionDate,
     mldcatap2:DatasetShape.contributor, 
     mldcatap2:DatasetShape.creator,
@@ -431,209 +432,209 @@ mldcatap2:DatasetShape a shacl:NodeShape;
     mldcatap2:DatasetShape.versionInfo,
     mldcatap2:DatasetShape.versionLabel,
     mldcatap2:DatasetShape.visibility;
-  shacl:targetClass dcat:Dataset .
+  sh:targetClass dcat:Dataset .
 
 mldcatap2:DatasetShape.accessRights rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.accessrights";
-  shacl:name "access rights"@en;
-  shacl:description "Information that indicates whether the Dataset is publicly accessible, has access restrictions or is not public."@en;
-  shacl:path dcterm:accessRights;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcterm:RightsStatement;
-  shacl:maxCount 1 .
+  sh:name "access rights"@en;
+  sh:description "Information that indicates whether the Dataset is publicly accessible, has access restrictions or is not public."@en;
+  sh:path dcterms:accessRights;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcterms:RightsStatement;
+  sh:maxCount 1 .
 
 mldcatap2:DatasetShape.collectionDate rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.collectiondate";
-  shacl:name "collection date"@en;
-  shacl:description "The date the data was originally collected, given by the uploader."@en;
-  shacl:path it6:collectionDate;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "collection date"@en;
+  sh:description "The date the data was originally collected, given by the uploader."@en;
+  sh:path it6:collectionDate;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:DatasetShape.contributor rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.contributor";
-  shacl:name "contributor"@en;
-  shacl:description "An entity responsible for making contributions to the dataset."@en;
-  shacl:path dcterm:contributor;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class foaf:Agent .
+  sh:name "contributor"@en;
+  sh:description "An entity responsible for making contributions to the dataset."@en;
+  sh:path dcterms:contributor;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class foaf:Agent .
 
 mldcatap2:DatasetShape.creator rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.creator";
-  shacl:name "creator"@en;
-  shacl:description "An entity responsible for producing the Dataset."@en;
-  shacl:path dcterm:creator;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class foaf:Agent .
+  sh:name "creator"@en;
+  sh:description "An entity responsible for producing the Dataset."@en;
+  sh:path dcterms:creator;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class foaf:Agent .
 
 mldcatap2:DatasetShape.datasetDistribution rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.datasetdistribution";
-  shacl:name "dataset distribution"@en;
-  shacl:description "An available Distribution for the Dataset."@en;
-  shacl:path dcat:distribution;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:Distribution .
+  sh:name "dataset distribution"@en;
+  sh:description "An available Distribution for the Dataset."@en;
+  sh:path dcat:distribution;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:Distribution .
 
 mldcatap2:DatasetShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.description";
-  shacl:name "description"@en;
-  shacl:description "A free-text account of the Dataset."@en;
-  shacl:path dcterm:description;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1 .
+  sh:name "description"@en;
+  sh:description "A free-text account of the Dataset."@en;
+  sh:path dcterms:description;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1 .
 
 mldcatap2:DatasetShape.hasVersion rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.hasversion";
-  shacl:name "has version"@en;
-  shacl:description "A related Dataset that is a version, edition, or adaptation of the described Dataset."@en;
-  shacl:path dcat:hasVersion;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:Dataset .
+  sh:name "has version"@en;
+  sh:description "A related Dataset that is a version, edition, or adaptation of the described Dataset."@en;
+  sh:path dcat:hasVersion;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:Dataset .
 
 mldcatap2:DatasetShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.identifier";
-  shacl:name "identifier"@en;
-  shacl:description "The main identifier for the Dataset, e.g. the URI or other unique identifier in the context of the Catalogue."@en;
-  shacl:path dcterm:identifier;
-  shacl:nodeKind shacl:Literal .
+  sh:name "identifier"@en;
+  sh:description "The main identifier for the Dataset, e.g. the URI or other unique identifier in the context of the Catalogue."@en;
+  sh:path dcterms:identifier;
+  sh:nodeKind sh:Literal .
 
 mldcatap2:DatasetShape.isReferencedBy rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.isreferencedby";
-  shacl:name "is referenced by"@en;
-  shacl:description "A related resource that references, cites, or otherwise points to the dataset."@en;
-  shacl:path dcterm:isReferencedBy;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class lpwc:paper .
+  sh:name "is referenced by"@en;
+  sh:description "A related resource that references, cites, or otherwise points to the dataset."@en;
+  sh:path dcterms:isReferencedBy;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class lpwc:paper .
 
 mldcatap2:DatasetShape.isVersionOf rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.isversionof";
-  shacl:name "is version of"@en;
-  shacl:description "This property refers to a related Dataset of which the described Dataset is a version, edition, or adaptation."@en;
-  shacl:path dcterm:isVersionOf;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:Dataset .
+  sh:name "is version of"@en;
+  sh:description "This property refers to a related Dataset of which the described Dataset is a version, edition, or adaptation."@en;
+  sh:path dcterms:isVersionOf;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:Dataset .
 
 mldcatap2:DatasetShape.keyword rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.keyword";
-  shacl:name "keyword"@en;
-  shacl:description "A keyword or tag describing the Dataset."@en;
-  shacl:path dcat:keyword;
-  shacl:nodeKind shacl:Literal .
+  sh:name "keyword"@en;
+  sh:description "A keyword or tag describing the Dataset."@en;
+  sh:path dcat:keyword;
+  sh:nodeKind sh:Literal .
 
 mldcatap2:DatasetShape.landingPage rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.landingpage";
-  shacl:name "landing page"@en;
-  shacl:description "A web page that provides access to the Dataset, its Distributions and/or additional information."@en;
-  shacl:path dcat:landingPage;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class foaf:Document .
+  sh:name "landing page"@en;
+  sh:description "A web page that provides access to the Dataset, its Distributions and/or additional information."@en;
+  sh:path dcat:landingPage;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class foaf:Document .
 
 mldcatap2:DatasetShape.publisher rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.publisher";
-  shacl:name "publisher"@en;
-  shacl:description "An entity (organization) responsible for making the resource available."@en;
-  shacl:path dcterm:publisher;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class foaf:Agent;
-  shacl:maxCount 1 .
+  sh:name "publisher"@en;
+  sh:description "An entity (organization) responsible for making the resource available."@en;
+  sh:path dcterms:publisher;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class foaf:Agent;
+  sh:maxCount 1 .
 
 mldcatap2:DatasetShape.releaseDate rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.releasedate";
-  shacl:name "release date"@en;
-  shacl:description "The date of formal issuance (e.g., publication) of the Dataset."@en;
-  shacl:path dcterm:issued;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "release date"@en;
+  sh:description "The date of formal issuance (e.g., publication) of the Dataset."@en;
+  sh:path dcterms:issued;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:DatasetShape.status rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.status";
-  shacl:name "status"@en;
-  shacl:description "The status of the dataset in the context of the publication process."@en;
-  shacl:path adms:status;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class skos:Concept;
-  shacl:maxCount 1 .
+  sh:name "status"@en;
+  sh:description "The status of the dataset in the context of the publication process."@en;
+  sh:path adms:status;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class skos:Concept;
+  sh:maxCount 1 .
 
 mldcatap2:DatasetShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.title";
-  shacl:name "title"@en;
-  shacl:description "A name given to the Dataset."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1 .
+  sh:name "title"@en;
+  sh:description "A name given to the Dataset."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1 .
 
 mldcatap2:DatasetShape.versionInfo rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.versioninfo";
-  shacl:name "version info"@en;
-  shacl:description "This property contains a version number or other version designation of the Dataset."@en;
-  shacl:path owl:versionInfo;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "version info"@en;
+  sh:description "This property contains a version number or other version designation of the Dataset."@en;
+  sh:path owl:versionInfo;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:DatasetShape.versionLabel rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.versionlabel";
-  shacl:name "version label"@en;
-  shacl:description "Version label provided by user, something relevant to the user. Can also be a date, hash, or some other type of id."@en;
-  shacl:path it6:versionLabel;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "version label"@en;
+  sh:description "Version label provided by user, something relevant to the user. Can also be a date, hash, or some other type of id."@en;
+  sh:path it6:versionLabel;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:DatasetShape.visibility rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.visibility";
-  shacl:name "visibility"@en;
-  shacl:description "Who can see the dataset. Typical values: 'Everyone','All my friends','Only me'. Can also be any of the user's circles."@en;
-  shacl:path it6:visibility;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class skos:Concept;
-  shacl:maxCount 1 .
+  sh:name "visibility"@en;
+  sh:description "Who can see the dataset. Typical values: 'Everyone','All my friends','Only me'. Can also be any of the user's circles."@en;
+  sh:path it6:visibility;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class skos:Concept;
+  sh:maxCount 1 .
 
 
-mldcatap2:DataQualityShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass it6:DataQuality;
-  shacl:property mldcatap2:DataQualityShape.description,
+mldcatap2:DataQualityShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass it6:DataQuality;
+  sh:property mldcatap2:DataQualityShape.description,
     mldcatap2:DataQualityShape.identifier,
     mldcatap2:DataQualityShape.title .
 
 mldcatap2:DataQualityShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataquality.description";
-  shacl:name "description"@en;
-  shacl:description "An explanation of the quality type."@en;
-  shacl:path dcterm:description;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "description"@en;
+  sh:description "An explanation of the quality type."@en;
+  sh:path dcterms:description;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:DataQualityShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataquality.identifier";
-  shacl:name "identifier"@en;
-  shacl:description "An unambiguous identifier for the resource."@en;
-  shacl:path dcterm:identifier;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "identifier"@en;
+  sh:description "An unambiguous identifier for the resource."@en;
+  sh:path dcterms:identifier;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:DataQualityShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataquality.title";
-  shacl:name "title"@en;
-  shacl:description "The name assigned to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "title"@en;
+  sh:description "The name assigned to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
-mldcatap2:DataServiceShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass dcat:DataService .
+mldcatap2:DataServiceShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass dcat:DataService .
 
-mldcatap2:DataServiceShape shacl:property mldcatap2:DataServiceShape.servesDataset,
+mldcatap2:DataServiceShape sh:property mldcatap2:DataServiceShape.servesDataset,
     mldcatap2:DataServiceShape.endpointURL, mldcatap2:DataServiceShape.title .
 
 mldcatap2:DataServiceShape.servesDataset rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#DataService.servesdataset";
-  shacl:name "serves dataset"@en;
-  shacl:description "A collection of data that this data service can distribute."@en;
-  shacl:path dcat:servesDataset;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:Dataset .
+  sh:name "serves dataset"@en;
+  sh:description "A collection of data that this data service can distribute."@en;
+  sh:path dcat:servesDataset;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:Dataset .
 
 mldcatap2:DataServiceShape.endpointURL rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#DataService.endpointURL";
-  shacl:name "endpoint URL"@en;
-  shacl:description "The root location or primary endpoint of the service (an IRI)."@en;
-  shacl:path dcat:endpointURL;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:Resource;
-  shacl:minCount 1 .
+  sh:name "endpoint URL"@en;
+  sh:description "The root location or primary endpoint of the service (an IRI)."@en;
+  sh:path dcat:endpointURL;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:Resource;
+  sh:minCount 1 .
 
 mldcatap2:DataServiceShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#DataService.title";
-  shacl:name "title"@en;
-  shacl:description "A name given to the Data Service."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1 .
+  sh:name "title"@en;
+  sh:description "A name given to the Data Service."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1 .
 
 
-mldcatap2:DistributionShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:DistributionShape.accessService,
+mldcatap2:DistributionShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:DistributionShape.accessService,
     mldcatap2:DistributionShape.accessURL,
     mldcatap2:DistributionShape.byteSize,
     mldcatap2:DistributionShape.checksum,
@@ -652,179 +653,179 @@ mldcatap2:DistributionShape a shacl:NodeShape;
     mldcatap2:DistributionShape.processingWarning,
     mldcatap2:DistributionShape.rowIDattribute,
     mldcatap2:DistributionShape.title;
-  shacl:targetClass dcat:Distribution .
+  sh:targetClass dcat:Distribution .
 
 
 mldcatap2:DistributionShape.accessService rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.accessservice";
-  shacl:name "access service"@en;
-  shacl:description "A data service that gives access to the distribution of the dataset."@en;
-  shacl:path dcat:accessService;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:DataService .
+  sh:name "access service"@en;
+  sh:description "A data service that gives access to the distribution of the dataset."@en;
+  sh:path dcat:accessService;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:DataService .
 
 mldcatap2:DistributionShape.accessURL rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.accessURL";
-  shacl:name "access URL"@en;
+  sh:name "access URL"@en;
   # fixed description literal
-  shacl:description "A URL that gives access to a Distribution of the Dataset."@en;
-  shacl:path dcat:accessURL;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:Resource;
-  shacl:minCount 1 .
+  sh:description "A URL that gives access to a Distribution of the Dataset."@en;
+  sh:path dcat:accessURL;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:Resource;
+  sh:minCount 1 .
 
 mldcatap2:DistributionShape.byteSize rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.bytesize";
-  shacl:name "byte size"@en;
-  shacl:description "The size of a Distribution in bytes."@en;
-  shacl:path dcat:byteSize;
-  #shacl:nodeKind shacl:Literal;
-  shacl:datatype xsd:nonNegativeInteger;
-  shacl:maxCount 1 .
+  sh:name "byte size"@en;
+  sh:description "The size of a Distribution in bytes."@en;
+  sh:path dcat:byteSize;
+  #sh:nodeKind sh:Literal;
+  sh:datatype xsd:nonNegativeInteger;
+  sh:maxCount 1 .
 
 mldcatap2:DistributionShape.checksum rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.checksum";
-  shacl:name "checksum"@en;
-  shacl:description "A mechanism that can be used to verify that the contents of a distribution have not changed."@en;
-  shacl:path spdx:checksum;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class spdx:Checksum;
-  shacl:maxCount 1 .
+  sh:name "checksum"@en;
+  sh:description "A mechanism that can be used to verify that the contents of a distribution have not changed."@en;
+  sh:path spdx:checksum;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class spdx:Checksum;
+  sh:maxCount 1 .
 
 mldcatap2:DistributionShape.defaultTargetAttribute rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.defaulttargetattribute";
-  shacl:name "default target attribute"@en;
-  shacl:description "The default target attribute, if it exists."@en;
-  shacl:path it6:defaultTargetAttribute;
-  shacl:nodeKind shacl:Literal .
+  sh:name "default target attribute"@en;
+  sh:description "The default target attribute, if it exists."@en;
+  sh:path it6:defaultTargetAttribute;
+  sh:nodeKind sh:Literal .
 
 mldcatap2:DistributionShape.downloadURL rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.downloadURL";
-  shacl:path dcat:downloadURL;
-  shacl:name "download URL"@en;
-  shacl:description "A URL that is a direct link to a downloadable file in a given format."@en;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:Resource .
+  sh:path dcat:downloadURL;
+  sh:name "download URL"@en;
+  sh:description "A URL that is a direct link to a downloadable file in a given format."@en;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:Resource .
 
 mldcatap2:DistributionShape.format rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.format";
-  shacl:name "format"@en;
-  shacl:description "The file format of the Distribution."@en;
-  shacl:path dcterm:format;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcterm:MediaTypeOrExtent;
-  shacl:maxCount 1 .
+  sh:name "format"@en;
+  sh:description "The file format of the Distribution."@en;
+  sh:path dcterms:format;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcterms:MediaTypeOrExtent;
+  sh:maxCount 1 .
 
 mldcatap2:DistributionShape.hasFeature rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.hasfeature";
-  shacl:name "has feature"@en;
-  shacl:description "The attribute or column being part of a distribution."@en;
-  shacl:path it6:hasFeature;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:Feature .
+  sh:name "has feature"@en;
+  sh:description "The attribute or column being part of a distribution."@en;
+  sh:path it6:hasFeature;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:Feature .
 
 mldcatap2:DistributionShape.hasPolicy rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.haspolicy";
-  shacl:name "has policy"@en;
-  shacl:description "The policy expressing the rights associated with the distribution if using the [[ODRL]] vocabulary."@en;
-  shacl:path odrl:hasPolicy;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class odrl:Policy;
-  shacl:maxCount 1 .
+  sh:name "has policy"@en;
+  sh:description "The policy expressing the rights associated with the distribution if using the [[ODRL]] vocabulary."@en;
+  sh:path odrl:hasPolicy;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class odrl:Policy;
+  sh:maxCount 1 .
 
 mldcatap2:DistributionShape.hasQualityMeasurement rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.hasqualitymeasurement";
-  shacl:name "has quality measurement"@en;
-  shacl:description "Refers to the performed quality measurements. Quality measurements can be performed to any kind of resource (e.g., a dataset, a linkset, a graph, a set of triples). However, in the DQV context, this property is generally expected to be used in statements in which subjects are instances of dcat:Dataset or dcat:Distribution."@en;
-  shacl:path dqv:hasQualityMeasurement;
-  shacl:class dqv:QualityMeasurement;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:minCount 1 .
+  sh:name "has quality measurement"@en;
+  sh:description "Refers to the performed quality measurements. Quality measurements can be performed to any kind of resource (e.g., a dataset, a linkset, a graph, a set of triples). However, in the DQV context, this property is generally expected to be used in statements in which subjects are instances of dcat:Dataset or dcat:Distribution."@en;
+  sh:path dqv:hasQualityMeasurement;
+  sh:class dqv:QualityMeasurement;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:minCount 1 .
 
 mldcatap2:DistributionShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.identifier";
-  shacl:name "identifier"@en;
-  shacl:description "An unambiguous identifier for the resource."@en;
-  shacl:path dcterm:identifier;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "identifier"@en;
+  sh:description "An unambiguous identifier for the resource."@en;
+  sh:path dcterms:identifier;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:DistributionShape.ignoreAttribute rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.ignoreattribute";
-  shacl:name "ignore attribute"@en;
-  shacl:description "Attributes that should be excluded in modelling, such as identifiers and indexes."@en;
-  shacl:path it6:ignoreAttribute;
-  shacl:nodeKind shacl:Literal .
+  sh:name "ignore attribute"@en;
+  sh:description "Attributes that should be excluded in modelling, such as identifiers and indexes."@en;
+  sh:path it6:ignoreAttribute;
+  sh:nodeKind sh:Literal .
 
 mldcatap2:DistributionShape.language rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.language";
-  shacl:name "language"@en;
-  shacl:description "A language used in the Distribution."@en;
-  shacl:path dcterm:language;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcterm:LinguisticSystem .
+  sh:name "language"@en;
+  sh:description "A language used in the Distribution."@en;
+  sh:path dcterms:language;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcterms:LinguisticSystem .
 
 mldcatap2:DistributionShape.license rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.license";
-  shacl:name "license"@en;
-  shacl:description "A license under which the Distribution is made available."@en;
-  shacl:path dcterm:license;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcterm:LicenseDocument;
-  shacl:maxCount 1 .
+  sh:name "license"@en;
+  sh:description "A license under which the Distribution is made available."@en;
+  sh:path dcterms:license;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcterms:LicenseDocument;
+  sh:maxCount 1 .
 
 mldcatap2:DistributionShape.processingDate rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.processingdate";
-  shacl:name "processing date"@en;
-  shacl:description "Date of processing."@en;
-  shacl:path it6:processingDate;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "processing date"@en;
+  sh:description "Date of processing."@en;
+  sh:path it6:processingDate;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:DistributionShape.processingError rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.processingerror";
-  shacl:name "processing error"@en;
-  shacl:description "Errors discovered while processing the dataset."@en;
-  shacl:path it6:processingError;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "processing error"@en;
+  sh:description "Errors discovered while processing the dataset."@en;
+  sh:path it6:processingError;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:DistributionShape.processingWarning rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.processingwarning";
-  shacl:name "processing warning"@en;
-  shacl:description "Warnings while processing the dataset."@en;
-  shacl:path it6:processingWarning;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "processing warning"@en;
+  sh:description "Warnings while processing the dataset."@en;
+  sh:path it6:processingWarning;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:DistributionShape.rowIDattribute rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.rowIDattribute";
-  shacl:name "row ID attribute"@en;
-  shacl:description "The attribute that represents the row-id column, if present in the dataset."@en;
-  shacl:path it6:rowIDAttribute;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "row ID attribute"@en;
+  sh:description "The attribute that represents the row-id column, if present in the dataset."@en;
+  sh:path it6:rowIDAttribute;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:DistributionShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.title";
-  shacl:name "title"@en;
-  shacl:description "A name given to the Distribution."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal .
+  sh:name "title"@en;
+  sh:description "A name given to the Distribution."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal .
 
-mldcatap2:DocumentShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass foaf:Document .
+mldcatap2:DocumentShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass foaf:Document .
 
 
-mldcatap2:EngagementShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass it6:Engagement;
-  shacl:property mldcatap2:EngagementShape.download,
+mldcatap2:EngagementShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass it6:Engagement;
+  sh:property mldcatap2:EngagementShape.download,
     mldcatap2:EngagementShape.like .
 
 mldcatap2:EngagementShape.download rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Engagement.download";
-  shacl:name "download"@en;
-  shacl:description "The number of downloads of the machine learning model."@en;
-  shacl:path it6:download;
-  #shacl:nodeKind shacl:Literal;
-  shacl:datatype xsd:integer;
-  shacl:maxCount 1 .
+  sh:name "download"@en;
+  sh:description "The number of downloads of the machine learning model."@en;
+  sh:path it6:download;
+  #sh:nodeKind sh:Literal;
+  sh:datatype xsd:integer;
+  sh:maxCount 1 .
 
 mldcatap2:EngagementShape.like rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Engagement.like";
-  shacl:name "like"@en;
-  shacl:description "The number of likes the machine learning model received."@en;
-  shacl:path it6:like;
-  #shacl:nodeKind shacl:Literal;
-  shacl:datatype xsd:integer;
-  shacl:maxCount 1 .
+  sh:name "like"@en;
+  sh:description "The number of likes the machine learning model received."@en;
+  sh:path it6:like;
+  #sh:nodeKind sh:Literal;
+  sh:datatype xsd:integer;
+  sh:maxCount 1 .
 
 
-mldcatap2:EstimationProcedureShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass it6:EstimationProcedure;
-  shacl:property mldcatap2:EstimationProcedureShape.dataSplitsURL,
+mldcatap2:EstimationProcedureShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass it6:EstimationProcedure;
+  sh:property mldcatap2:EstimationProcedureShape.dataSplitsURL,
     mldcatap2:EstimationProcedureShape.description,
     mldcatap2:EstimationProcedureShape.hasParameter,
     mldcatap2:EstimationProcedureShape.identifier,
@@ -832,57 +833,57 @@ mldcatap2:EstimationProcedureShape a shacl:NodeShape;
     mldcatap2:EstimationProcedureShape.type .
 
 mldcatap2:EstimationProcedureShape.dataSplitsURL rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EstimationProcedure.datasplitsURL";
-  shacl:name "data splits URL"@en;
-  shacl:path it6:dataSplitsURL;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:Resource;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "data splits URL"@en;
+  sh:path it6:dataSplitsURL;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:Resource;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:EstimationProcedureShape.type rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EstimationProcedure.type";
-  shacl:name "type"@en;
-  shacl:description "A classification of the resource."@en;
-  shacl:path dcterm:type;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class skos:Concept;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "type"@en;
+  sh:description "A classification of the resource."@en;
+  sh:path dcterms:type;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class skos:Concept;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:EstimationProcedureShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EstimationProcedure.title";
-  shacl:name "title"@en;
-  shacl:description "The name assigned to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "title"@en;
+  sh:description "The name assigned to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:EstimationProcedureShape.hasParameter rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EstimationProcedure.hasparameter";
-  shacl:name "has parameter"@en;
-  shacl:path it6:hasParameter;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:Parameter;
-  shacl:minCount 1 .
+  sh:name "has parameter"@en;
+  sh:path it6:hasParameter;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:Parameter;
+  sh:minCount 1 .
 
 mldcatap2:EstimationProcedureShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EstimationProcedure.identifier";
-  shacl:name "identifier"@en;
-  shacl:description "An unambiguous identifier for the resource."@en;
-  shacl:path dcterm:identifier;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1;
-  shacl:minCount 1 .
+  sh:name "identifier"@en;
+  sh:description "An unambiguous identifier for the resource."@en;
+  sh:path dcterms:identifier;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1;
+  sh:minCount 1 .
 
 mldcatap2:EstimationProcedureShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EstimationProcedure.description";
-  shacl:name "description"@en;
-  shacl:path dcterm:description;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "description"@en;
+  sh:path dcterms:description;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
-mldcatap2:EvaluationShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass it6:Evaluation;
-  shacl:property mldcatap2:EvaluationShape.arrayData,
+mldcatap2:EvaluationShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass it6:Evaluation;
+  sh:property mldcatap2:EvaluationShape.arrayData,
     mldcatap2:EvaluationShape.fold,
     mldcatap2:EvaluationShape.hasFlow,
     mldcatap2:EvaluationShape.identifier,
@@ -897,172 +898,172 @@ mldcatap2:EvaluationShape a shacl:NodeShape;
     mldcatap2:EvaluationShape.value .
 
 mldcatap2:EvaluationShape.arrayData rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.arraydata";
-  shacl:name "array data"@en;
-  shacl:path it6:arrayData;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "array data"@en;
+  sh:path it6:arrayData;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:EvaluationShape.fold rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.fold";
-  shacl:name "fold"@en;
-  shacl:path it6:fold;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "fold"@en;
+  sh:path it6:fold;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:EvaluationShape.hasFlow rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.hasflow";
-  shacl:name "has flow"@en;
-  shacl:path it6:hasFlow;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:Flow .
+  sh:name "has flow"@en;
+  sh:path it6:hasFlow;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:Flow .
 
 mldcatap2:EvaluationShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.identifier";
-  shacl:name "identifier"@en;
-  shacl:description "An unambiguous identifier for the resource."@en;
-  shacl:path dcterm:identifier;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "identifier"@en;
+  sh:description "An unambiguous identifier for the resource."@en;
+  sh:path dcterms:identifier;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:EvaluationShape.intervalEnd rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.intervalend";
-  shacl:name "interval end"@en;
-  shacl:path it6:intervalEnd;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "interval end"@en;
+  sh:path it6:intervalEnd;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:EvaluationShape.intervalStart rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.intervalstart";
-  shacl:name "interval start"@en;
-  shacl:path it6:intervalStart;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "interval start"@en;
+  sh:path it6:intervalStart;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:EvaluationShape.label rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.label";
-  shacl:name "label"@en;
-  shacl:path rdfs:label;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "label"@en;
+  sh:path rdfs:label;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:EvaluationShape.repeat rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.repeat";
-  shacl:name "repeat"@en;
-  shacl:path it6:repeat;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "repeat"@en;
+  sh:path it6:repeat;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:EvaluationShape.sample rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.sample";
-  shacl:name "sample"@en;
-  shacl:path it6:sample;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "sample"@en;
+  sh:path it6:sample;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:EvaluationShape.sampleSize rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.samplesize";
-  shacl:name "sample size"@en;
-  shacl:path it6:sampleSize;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "sample size"@en;
+  sh:path it6:sampleSize;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:EvaluationShape.stdev rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.stdev";
-  shacl:name "stdev"@en;
-  shacl:path it6:stdev;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "stdev"@en;
+  sh:path it6:stdev;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:EvaluationShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.title";
-  shacl:name "title"@en;
-  shacl:description "The name assigned to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "title"@en;
+  sh:description "The name assigned to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:EvaluationShape.value rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.value";
-  shacl:name "value"@en;
-  shacl:path it6:value;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "value"@en;
+  sh:path it6:value;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 
-mldcatap2:EvaluationMeasureShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:EvaluationMeasureShape.description,
+mldcatap2:EvaluationMeasureShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:EvaluationMeasureShape.description,
     mldcatap2:EvaluationMeasureShape.implementation,
     mldcatap2:EvaluationMeasureShape.title,
     mldcatap2:EvaluationMeasureShape.value,
     mldcatap2:EvaluationMeasureShape.valueBad,
     mldcatap2:EvaluationMeasureShape.valueGood;
-  shacl:targetClass it6:EvaluationMeasure .
+  sh:targetClass it6:EvaluationMeasure .
 
 mldcatap2:EvaluationMeasureShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EvaluationMeasure.description";
-  shacl:name "description"@en;
-  shacl:path dcterm:description;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "description"@en;
+  sh:path dcterms:description;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:EvaluationMeasureShape.implementation rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EvaluationMeasure.implementation";
-  shacl:name "implementation"@en;
-  shacl:path it6:implementation;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "implementation"@en;
+  sh:path it6:implementation;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:EvaluationMeasureShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EvaluationMeasure.title";
-  shacl:name "title"@en;
-  shacl:description "The name assigned to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "title"@en;
+  sh:description "The name assigned to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:EvaluationMeasureShape.value rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EvaluationMeasure.value";
-  shacl:name "value"@en;
-  shacl:path it6:value;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "value"@en;
+  sh:path it6:value;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:EvaluationMeasureShape.valueBad rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EvaluationMeasure.valuebad";
-  shacl:name "value bad"@en;
-  shacl:path it6:valueBad;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "value bad"@en;
+  sh:path it6:valueBad;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:EvaluationMeasureShape.valueGood rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EvaluationMeasure.valuegood";
-  shacl:name "value good"@en;
-  shacl:path it6:valueGood;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "value good"@en;
+  sh:path it6:valueGood;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 
-mldcatap2:FeatureShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:FeatureShape.description,
+mldcatap2:FeatureShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:FeatureShape.description,
     mldcatap2:FeatureShape.title,
     mldcatap2:FeatureShape.type;
-  shacl:targetClass it6:Feature .
+  sh:targetClass it6:Feature .
 
 mldcatap2:FeatureShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Feature.description";
-  shacl:name "description"@en;
-  shacl:description "An explanation of the attribute."@en;
-  shacl:path dcterm:description;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "description"@en;
+  sh:description "An explanation of the attribute."@en;
+  sh:path dcterms:description;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:FeatureShape.type rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Feature.type";
-  shacl:name "type"@en;
-  shacl:description "A classification of the resource."@en;
-  shacl:path dcterm:type;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class skos:Concept;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "type"@en;
+  sh:description "A classification of the resource."@en;
+  sh:path dcterms:type;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class skos:Concept;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:FeatureShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Feature.title";
-  shacl:name "title"@en;
-  shacl:description "The name assigned to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "title"@en;
+  sh:description "The name assigned to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
-mldcatap2:FlowShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:FlowShape.className,
+mldcatap2:FlowShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:FlowShape.className,
     mldcatap2:FlowShape.customName,
     mldcatap2:FlowShape.description,
     mldcatap2:FlowShape.externalVersion,
@@ -1075,194 +1076,194 @@ mldcatap2:FlowShape a shacl:NodeShape;
     mldcatap2:FlowShape.title,
     mldcatap2:FlowShape.uploaded,
     mldcatap2:FlowShape.version;
-  shacl:targetClass it6:Flow .
+  sh:targetClass it6:Flow .
 
 mldcatap2:FlowShape.className rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.classname";
-  shacl:name "class name"@en;
-  shacl:path it6:className;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "class name"@en;
+  sh:path it6:className;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:FlowShape.customName rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.customname";
-  shacl:name "custom name"@en;
-  shacl:path it6:customName;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "custom name"@en;
+  sh:path it6:customName;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:FlowShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.description";
-  shacl:name "description"@en;
-  shacl:path dcterm:description;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "description"@en;
+  sh:path dcterms:description;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:FlowShape.externalVersion rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.externalversion";
-  shacl:name "external version"@en;
-  shacl:path it6:externalVersion;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "external version"@en;
+  sh:path it6:externalVersion;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:FlowShape.hasDependency rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.hasdependency";
-  shacl:name "has dependency"@en;
-  shacl:description "The libraries that a flow depends on."@en;
-  shacl:path it6:hasDependency;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:Library .
+  sh:name "has dependency"@en;
+  sh:description "The libraries that a flow depends on."@en;
+  sh:path it6:hasDependency;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:Library .
 
 mldcatap2:FlowShape.hasFlowParameter rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.hasflowparameter";
-  shacl:name "has flow parameter"@en;
-  shacl:path it6:hasFlowParameter;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:FlowParameter .
+  sh:name "has flow parameter"@en;
+  sh:path it6:hasFlowParameter;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:FlowParameter .
 
 mldcatap2:FlowShape.hasUploader rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.hasuploader";
-  shacl:name "has uploader"@en;
-  shacl:description "An entity responsible for uploading the resource."@en;
-  shacl:path it6:hasUploader;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class foaf:Agent;
-  shacl:maxCount 1 .
+  sh:name "has uploader"@en;
+  sh:description "An entity responsible for uploading the resource."@en;
+  sh:path it6:hasUploader;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class foaf:Agent;
+  sh:maxCount 1 .
 
 mldcatap2:FlowShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.identifier";
-  shacl:name "identifier"@en;
-  shacl:description "An unambiguous identifier for the resource."@en;
-  shacl:path dcterm:identifier;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "identifier"@en;
+  sh:description "An unambiguous identifier for the resource."@en;
+  sh:path dcterms:identifier;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:FlowShape.keyword rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.keyword";
-  shacl:name "keyword"@en;
-  shacl:path dcat:keyword;
-  shacl:nodeKind shacl:Literal .
+  sh:name "keyword"@en;
+  sh:path dcat:keyword;
+  sh:nodeKind sh:Literal .
 
 mldcatap2:FlowShape.status rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.status";
-  shacl:name "status"@en;
-  shacl:path adms:status;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class skos:Concept;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "status"@en;
+  sh:path adms:status;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class skos:Concept;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:FlowShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.title";
-  shacl:name "title"@en;
-  shacl:description "The name assigned to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "title"@en;
+  sh:description "The name assigned to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:FlowShape.uploaded rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.uploaded";
-  shacl:name "uploaded"@en;
-  shacl:path it6:uploaded;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "uploaded"@en;
+  sh:path it6:uploaded;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:FlowShape.version rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.version";
-  shacl:name "version"@en;
-  shacl:path it6:version;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "version"@en;
+  sh:path it6:version;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 
-mldcatap2:FlowParameterShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:FlowParameterShape.defaultValue,
+mldcatap2:FlowParameterShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:FlowParameterShape.defaultValue,
     mldcatap2:FlowParameterShape.description,
     mldcatap2:FlowParameterShape.recommendedRange,
     mldcatap2:FlowParameterShape.title,
     mldcatap2:FlowParameterShape.type;
-  shacl:targetClass it6:FlowParameter .
+  sh:targetClass it6:FlowParameter .
 
 mldcatap2:FlowParameterShape.defaultValue rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#FlowParameter.defaultvalue";
-  shacl:name "default value"@en;
-  shacl:path it6:defaultValue;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "default value"@en;
+  sh:path it6:defaultValue;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:FlowParameterShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#FlowParameter.description";
-  shacl:name "description"@en;
-  shacl:path dcterm:description;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "description"@en;
+  sh:path dcterms:description;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
   
 mldcatap2:FlowParameterShape.recommendedRange rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#FlowParameter.recommendedrange";
-  shacl:name "recommended range"@en;
-  shacl:path it6:recommendedRange;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "recommended range"@en;
+  sh:path it6:recommendedRange;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:FlowParameterShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#FlowParameter.title";
-  shacl:name "title"@en;
-  shacl:description "The name assigned to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "title"@en;
+  sh:description "The name assigned to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:FlowParameterShape.type rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#FlowParameter.type";
-  shacl:name "type"@en;
-  shacl:description "A classification of the resource."@en;
-  shacl:path dcterm:type;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class skos:Concept;
-  shacl:maxCount 1 .
+  sh:name "type"@en;
+  sh:description "A classification of the resource."@en;
+  sh:path dcterms:type;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class skos:Concept;
+  sh:maxCount 1 .
 
 
-mldcatap2:HexBinaryShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass xsd:hexBinary .
+mldcatap2:HexBinaryShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass xsd:hexBinary .
 
 
-mldcatap2:ImageObjectShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass cv:ImageObject .
+mldcatap2:ImageObjectShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass cv:ImageObject .
 
-mldcatap2:IntegerShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass xsd:integer .
+mldcatap2:IntegerShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass xsd:integer .
 
 
-mldcatap2:LibraryShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:LibraryShape.title,
+mldcatap2:LibraryShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:LibraryShape.title,
     mldcatap2:LibraryShape.version;
-  shacl:targetClass it6:Library .
+  sh:targetClass it6:Library .
 
 mldcatap2:LibraryShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Library.title";
-  shacl:name "title"@en;
-  shacl:description "The name assigned to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "title"@en;
+  sh:description "The name assigned to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:LibraryShape.version rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Library.version";
-  shacl:name "version"@en;
-  shacl:path it6:version;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "version"@en;
+  sh:path it6:version;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
-mldcatap2:LicenseDocumentShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass dcterm:LicenseDocument .
+mldcatap2:LicenseDocumentShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass dcterms:LicenseDocument .
 
 
-mldcatap2:LinguisticSystemShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass dcterm:LinguisticSystem .
+mldcatap2:LinguisticSystemShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass dcterms:LinguisticSystem .
 
 
-mldcatap2:LiteralShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass rdfs:Literal .
+mldcatap2:LiteralShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass rdfs:Literal .
 
 
-mldcatap2:MachineLearningModelShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass it6:MachineLearningModel;
-  shacl:property mldcatap2:MachineLearningModelShape.bias,
+mldcatap2:MachineLearningModelShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass it6:MachineLearningModel;
+  sh:property mldcatap2:MachineLearningModelShape.bias,
     mldcatap2:MachineLearningModelShape.contributor,
     mldcatap2:MachineLearningModelShape.created,
     mldcatap2:MachineLearningModelShape.creator,
@@ -1295,333 +1296,333 @@ mldcatap2:MachineLearningModelShape a shacl:NodeShape;
     mldcatap2:MachineLearningModelShape.version .
 
 mldcatap2:MachineLearningModelShape.bias rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.bias";
-  shacl:name "bias"@en;
-  shacl:description "A description of the possible biases affecting the overall output of the model."@en;
-  shacl:path it6:bias;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "bias"@en;
+  sh:description "A description of the possible biases affecting the overall output of the model."@en;
+  sh:path it6:bias;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:MachineLearningModelShape.created rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.created";
-  shacl:name "created"@en;
-  shacl:description "Date of creation of the resource."@en;
-  shacl:path dcterm:created;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "created"@en;
+  sh:description "Date of creation of the resource."@en;
+  sh:path dcterms:created;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:MachineLearningModelShape.creator rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.creator";
-  shacl:name "creator"@en;
-  shacl:description "An entity responsible for making the resource."@en;
-  shacl:path dcterm:creator;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class foaf:Agent .
+  sh:name "creator"@en;
+  sh:description "An entity responsible for making the resource."@en;
+  sh:path dcterms:creator;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class foaf:Agent .
 
 mldcatap2:MachineLearningModelShape.contributor rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.contributor";
-  shacl:name "contributor"@en;
-  shacl:description "An entity responsible for making contributions to the resource."@en;
-  shacl:path dcterm:contributor;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class foaf:Agent .
+  sh:name "contributor"@en;
+  sh:description "An entity responsible for making contributions to the resource."@en;
+  sh:path dcterms:contributor;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class foaf:Agent .
 
 mldcatap2:MachineLearningModelShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.description";
-  shacl:name "description"@en;
-  shacl:description "An account of the resource."@en;
-  shacl:path dcterm:description;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "description"@en;
+  sh:description "An account of the resource."@en;
+  sh:path dcterms:description;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:MachineLearningModelShape.evaluationResults rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.evaluationresults";
-  shacl:name "evaluation results"@en;
-  shacl:description "A description of the evaluation against the validation dataset."@en;
-  shacl:path it6:evaluationResults;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "evaluation results"@en;
+  sh:description "A description of the evaluation against the validation dataset."@en;
+  sh:path it6:evaluationResults;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:MachineLearningModelShape.fineTunedFrom rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.finetunedfrom";
-  shacl:name "fine tuned from"@en;
-  shacl:description "The model from on which this model has been fine tuned."@en;
-  shacl:path it6:fineTunedFrom;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:MachineLearningModel;
-  shacl:maxCount 1 .
+  sh:name "fine tuned from"@en;
+  sh:description "The model from on which this model has been fine tuned."@en;
+  sh:path it6:fineTunedFrom;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:MachineLearningModel;
+  sh:maxCount 1 .
 
 mldcatap2:MachineLearningModelShape.hasBibliographicReference rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasbibliographicreference";
-  shacl:name "has bibliographic reference"@en;
-  shacl:description "The reference to a paper."@en;
-  shacl:path it6:hasBibliographicReference;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class biro:BibliographicReference .
+  sh:name "has bibliographic reference"@en;
+  sh:description "The reference to a paper."@en;
+  sh:path it6:hasBibliographicReference;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class biro:BibliographicReference .
 
 mldcatap2:MachineLearningModelShape.hasEngagement rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasengagement";
-  shacl:name "has engagement"@en;
-  shacl:description "Statistics resulting of user engagement."@en;
-  shacl:path it6:hasEngagement;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:Engagement;
-  shacl:maxCount 1 .
+  sh:name "has engagement"@en;
+  sh:description "Statistics resulting of user engagement."@en;
+  sh:path it6:hasEngagement;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:Engagement;
+  sh:maxCount 1 .
 
 mldcatap2:MachineLearningModelShape.hasOutputFilePrediction rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasoutputfileprediction";
-  shacl:name "has output file prediction"@en;
-  shacl:description "The file in which the model is expressed."@en;
-  shacl:path it6:hasOutputFilePrediction;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:OutputFilePrediction;
-  shacl:minCount 1 .
+  sh:name "has output file prediction"@en;
+  sh:description "The file in which the model is expressed."@en;
+  sh:path it6:hasOutputFilePrediction;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:OutputFilePrediction;
+  sh:minCount 1 .
 
 mldcatap2:MachineLearningModelShape.hasPrediction rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasprediction";
-  shacl:name "has prediction"@en;
-  shacl:description "The predicted dataset generated as output of a machine learning model."@en;
-  shacl:path it6:hasPrediction;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:Dataset .
+  sh:name "has prediction"@en;
+  sh:description "The predicted dataset generated as output of a machine learning model."@en;
+  sh:path it6:hasPrediction;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:Dataset .
 
 mldcatap2:MachineLearningModelShape.hasProvider rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasprovider";
-  shacl:name "has provider"@en;
-  shacl:description "A natural or legal person, public authority, agency or other body that develops a Machine Learning Model or places it on the market or puts the it into service under its own name or trademark, whether for payment or free of charge."@en;
-  shacl:path it6:hasProvider;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class foaf:Agent .
+  sh:name "has provider"@en;
+  sh:description "A natural or legal person, public authority, agency or other body that develops a Machine Learning Model or places it on the market or puts the it into service under its own name or trademark, whether for payment or free of charge."@en;
+  sh:path it6:hasProvider;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class foaf:Agent .
 
 mldcatap2:MachineLearningModelShape.hasRepository rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasrepository";
-  shacl:name "has repository"@en;
-  shacl:description "The repository associated."@en;
-  shacl:path it6:hasRepository;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class lpwc:repository .
+  sh:name "has repository"@en;
+  sh:description "The repository associated."@en;
+  sh:path it6:hasRepository;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class lpwc:repository .
 
 mldcatap2:MachineLearningModelShape.hasRisk rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasrisk";
-  shacl:name "has risk"@en;
-  shacl:description "It refers to a possible risk that can occur."@en;
-  shacl:path it6:hasRisk;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:Risk .
+  sh:name "has risk"@en;
+  sh:description "It refers to a possible risk that can occur."@en;
+  sh:path it6:hasRisk;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:Risk .
 
 mldcatap2:MachineLearningModelShape.hasVariation rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasvariation";
-  shacl:name "has variation"@en;
-  shacl:description "The model that is variant of this model."@en;
-  shacl:path it6:hasVariation;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:MachineLearningModel .
+  sh:name "has variation"@en;
+  sh:description "The model that is variant of this model."@en;
+  sh:path it6:hasVariation;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:MachineLearningModel .
 
 mldcatap2:MachineLearningModelShape.hasUploader rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasuploader";
-  shacl:name "has uploader"@en;
-  shacl:description "An entity responsible for uploading the resource."@en;
-  shacl:path it6:hasUploader;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class foaf:Agent;
-  shacl:maxCount 1 .
+  sh:name "has uploader"@en;
+  sh:description "An entity responsible for uploading the resource."@en;
+  sh:path it6:hasUploader;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class foaf:Agent;
+  sh:maxCount 1 .
 
 mldcatap2:MachineLearningModelShape.howToUse rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.howtouse";
-  shacl:name "how to use"@en;
-  shacl:description "An explanation of how to use or deploy the model."@en;
-  shacl:path it6:howToUse;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "how to use"@en;
+  sh:description "An explanation of how to use or deploy the model."@en;
+  sh:path it6:howToUse;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:MachineLearningModelShape.intendedUse rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.intendeduse";
-  shacl:name "intended use"@en;
-  shacl:description "The objective or purpose of the model."@en;
-  shacl:path it6:intendedUse;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "intended use"@en;
+  sh:description "The objective or purpose of the model."@en;
+  sh:path it6:intendedUse;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:MachineLearningModelShape.keyword rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.keyword";
-  shacl:name "keyword"@en;
-  shacl:description "A keyword or tag describing the resource."@en;
-  shacl:path dcat:keyword;
-  shacl:nodeKind shacl:Literal .
+  sh:name "keyword"@en;
+  sh:description "A keyword or tag describing the resource."@en;
+  sh:path dcat:keyword;
+  sh:nodeKind sh:Literal .
 
 mldcatap2:MachineLearningModelShape.language rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.language";
-  shacl:name "language"@en;
-  shacl:description "A language of the resource."@en;
-  shacl:path dcterm:language;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcterm:LinguisticSystem .
+  sh:name "language"@en;
+  sh:description "A language of the resource."@en;
+  sh:path dcterms:language;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcterms:LinguisticSystem .
 
 mldcatap2:MachineLearningModelShape.license rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.license";
-  shacl:name "license"@en;
-  shacl:description "The license under which the resource is made available."@en;
-  shacl:path dcterm:license;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcterm:LicenseDocument .
+  sh:name "license"@en;
+  sh:description "The license under which the resource is made available."@en;
+  sh:path dcterms:license;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcterms:LicenseDocument .
 
 mldcatap2:MachineLearningModelShape.limitations rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.limitations";
-  shacl:name "limitations"@en;
-  shacl:description "The limited capabilities of the model."@en;
-  shacl:path it6:limitations;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "limitations"@en;
+  sh:description "The limited capabilities of the model."@en;
+  sh:path it6:limitations;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:MachineLearningModelShape.logo rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.logo";
-  shacl:name "logo"@en;
-  shacl:description "An image or logo of the model."@en;
-  shacl:path cv:logo;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class cv:ImageObject .
+  sh:name "logo"@en;
+  sh:description "An image or logo of the model."@en;
+  sh:path cv:logo;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class cv:ImageObject .
 
 mldcatap2:MachineLearningModelShape.name rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.name";
-  shacl:name "name"@en;
-  shacl:description "The name assigned to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "name"@en;
+  sh:description "The name assigned to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:MachineLearningModelShape.runnedOn rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.runnedon";
   # FIXME: Typo
-  shacl:name "runned on"@en;
-  shacl:description "The dataset on which a machine learning mode is executed."@en;
+  sh:name "runned on"@en;
+  sh:description "The dataset on which a machine learning mode is executed."@en;
   # FIXME: Typo
-  shacl:path it6:runnedOn;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:Dataset .
+  sh:path it6:runnedOn;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:Dataset .
 
 mldcatap2:MachineLearningModelShape.testedOn rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.testedon";
-  shacl:name "tested on"@en;
-  shacl:description "The testing dataset used to evaluate the machine learning model."@en;
-  shacl:path it6:testedOn;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:Dataset .
+  sh:name "tested on"@en;
+  sh:description "The testing dataset used to evaluate the machine learning model."@en;
+  sh:path it6:testedOn;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:Dataset .
 
 mldcatap2:MachineLearningModelShape.trainedOn rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.trainedon";
-  shacl:name "trained on"@en;
-  shacl:description "The training dataset used to train the machine learning model."@en;
-  shacl:path it6:trainedOn;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:Dataset ;
-  shacl:minCount 1 .
+  sh:name "trained on"@en;
+  sh:description "The training dataset used to train the machine learning model."@en;
+  sh:path it6:trainedOn;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:Dataset ;
+  sh:minCount 1 .
 
 mldcatap2:MachineLearningModelShape.trainingProcess rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.trainingprocess";
-  shacl:name "training process"@en;
-  shacl:description "A description of the training process."@en;
-  shacl:path it6:trainingProcess;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "training process"@en;
+  sh:description "A description of the training process."@en;
+  sh:path it6:trainingProcess;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:MachineLearningModelShape.type rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.type";
-  shacl:name "type"@en;
-  shacl:description "The nature or genre of the resource."@en;
-  shacl:path dcterm:type;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class skos:Concept .
+  sh:name "type"@en;
+  sh:description "The nature or genre of the resource."@en;
+  sh:path dcterms:type;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class skos:Concept .
 
 mldcatap2:MachineLearningModelShape.validatedOn rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.validatedon";
-  shacl:name "validated on"@en;
-  shacl:description "The validation dataset used to fine-tune the machine learning model."@en;
-  shacl:path it6:validatedOn;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:Dataset .
+  sh:name "validated on"@en;
+  sh:description "The validation dataset used to fine-tune the machine learning model."@en;
+  sh:path it6:validatedOn;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:Dataset .
 
 mldcatap2:MachineLearningModelShape.version rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.version";
-  shacl:name "version"@en;
-  shacl:description "The current version of the model."@en;
-  shacl:path it6:version;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "version"@en;
+  sh:description "The current version of the model."@en;
+  sh:path it6:version;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
-mldcatap2:MeasureShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass it6:Measure .
+mldcatap2:MeasureShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass it6:Measure .
 
 
-mldcatap2:MediaTypeOrExtentShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass dcterm:MediaTypeOrExtent .
+mldcatap2:MediaTypeOrExtentShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass dcterms:MediaTypeOrExtent .
 
 
-mldcatap2:nonNegativeIntegerShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass xsd:nonNegativeInteger .
+mldcatap2:nonNegativeIntegerShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass xsd:nonNegativeInteger .
 
 
-mldcatap2:OutputFileDescriptionShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:OutputFileDescriptionShape.id,
+mldcatap2:OutputFileDescriptionShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:OutputFileDescriptionShape.id,
     mldcatap2:OutputFileDescriptionShape.title,
     mldcatap2:OutputFileDescriptionShape.url;
-  shacl:targetClass it6:OutputFileDescription .
+  sh:targetClass it6:OutputFileDescription .
 
 mldcatap2:OutputFileDescriptionShape.id rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFileDescription.id";
-  shacl:name "id"@en;
-  shacl:description "An unambiguous identifier for the resource."@en;
-  shacl:path dcterm:identifier;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "id"@en;
+  sh:description "An unambiguous identifier for the resource."@en;
+  sh:path dcterms:identifier;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
   
 mldcatap2:OutputFileDescriptionShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFileDescription.title";
-  shacl:name "title"@en;
-  shacl:description "The name assigned to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "title"@en;
+  sh:description "The name assigned to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:OutputFileDescriptionShape.url rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFileDescription.url";
-  shacl:name "url"@en;
-  shacl:path it6:url;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1;
-  shacl:minCount 1 .
+  sh:name "url"@en;
+  sh:path it6:url;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1;
+  sh:minCount 1 .
 
 
-mldcatap2:OutputFilePredictionShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:OutputFilePredictionShape.checksum,
+mldcatap2:OutputFilePredictionShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:OutputFilePredictionShape.checksum,
     mldcatap2:OutputFilePredictionShape.format,
     mldcatap2:OutputFilePredictionShape.id,
     mldcatap2:OutputFilePredictionShape.title,
     mldcatap2:OutputFilePredictionShape.url;
-  shacl:targetClass it6:OutputFilePrediction .
+  sh:targetClass it6:OutputFilePrediction .
 
 mldcatap2:OutputFilePredictionShape.checksum rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFilePrediction.checksum";
-  shacl:name "checksum"@en;
-  shacl:description "This property provides a mechanism that can be used to verify that the contents of a distribution have not changed."@en;
-  shacl:path spdx:checksum;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class spdx:Checksum .
+  sh:name "checksum"@en;
+  sh:description "This property provides a mechanism that can be used to verify that the contents of a distribution have not changed."@en;
+  sh:path spdx:checksum;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class spdx:Checksum .
 
 mldcatap2:OutputFilePredictionShape.format rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFilePrediction.format";
-  shacl:name "format"@en;
-  shacl:description "The file format, physical medium, or dimensions of the resource."@en;
-  shacl:path dcterm:format;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class skos:Concept;
-  shacl:maxCount 1;
-  shacl:minCount 1 .
+  sh:name "format"@en;
+  sh:description "The file format, physical medium, or dimensions of the resource."@en;
+  sh:path dcterms:format;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class skos:Concept;
+  sh:maxCount 1;
+  sh:minCount 1 .
 
 mldcatap2:OutputFilePredictionShape.id rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFilePrediction.id";
-  shacl:name "id"@en;
-  shacl:description "An unambiguous identifier for the resource."@en;
-  shacl:path dcterm:identifier;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "id"@en;
+  sh:description "An unambiguous identifier for the resource."@en;
+  sh:path dcterms:identifier;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
 mldcatap2:OutputFilePredictionShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFilePrediction.title";
-  shacl:name "title"@en;
-  shacl:description "The name assigned to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "title"@en;
+  sh:description "The name assigned to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:OutputFilePredictionShape.url rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFilePrediction.url";
-  shacl:name "url"@en;
-  shacl:description "The url of the file to be downloaded."@en;
-  shacl:path it6:url;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:Resource;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "url"@en;
+  sh:description "The url of the file to be downloaded."@en;
+  sh:path it6:url;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:Resource;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
-mldcatap2:PaperShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:PaperShape.abstract,
+mldcatap2:PaperShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:PaperShape.abstract,
     mldcatap2:PaperShape.creator,
     mldcatap2:PaperShape.date,
     mldcatap2:PaperShape.hasDocument,
@@ -1630,328 +1631,328 @@ mldcatap2:PaperShape a shacl:NodeShape;
     mldcatap2:PaperShape.references,
     mldcatap2:PaperShape.subject,
     mldcatap2:PaperShape.title;
-  shacl:targetClass lpwc:paper .
+  sh:targetClass lpwc:paper .
 
 mldcatap2:PaperShape.abstract rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.abstract";
-  shacl:name "abstract"@en;
-  shacl:description "A summary of the resource."@en;
-  shacl:path dcterm:abstract;
-  shacl:maxCount 1;
-  shacl:nodeKind shacl:Literal .
+  sh:name "abstract"@en;
+  sh:description "A summary of the resource."@en;
+  sh:path dcterms:abstract;
+  sh:maxCount 1;
+  sh:nodeKind sh:Literal .
 
 mldcatap2:PaperShape.creator rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.creator";
-  shacl:name "creator"@en;
-  shacl:description "An entity responsible for making the resource."@en;
-  shacl:path dcterm:creator;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class foaf:Agent .
+  sh:name "creator"@en;
+  sh:description "An entity responsible for making the resource."@en;
+  sh:path dcterms:creator;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class foaf:Agent .
 
 mldcatap2:PaperShape.date rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.date";
-  shacl:name "date"@en;
-  shacl:description "A point or period of time associated with an event in the lifecycle of the resource."@en;
-  shacl:path dcterm:date;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "date"@en;
+  sh:description "A point or period of time associated with an event in the lifecycle of the resource."@en;
+  sh:path dcterms:date;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:PaperShape.hasDocument rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.hasdocument";
-  shacl:name "has document"@en;
-  shacl:description "This property specifies the url or location of the document itself."@en;
-  shacl:path it6:hasDocument;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class foaf:Document;
-  shacl:maxCount 1;
-  shacl:minCount 1 .
+  sh:name "has document"@en;
+  sh:description "This property specifies the url or location of the document itself."@en;
+  sh:path it6:hasDocument;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class foaf:Document;
+  sh:maxCount 1;
+  sh:minCount 1 .
 
 mldcatap2:PaperShape.hasModel rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.hasmodel";
-  shacl:name "has model"@en;
-  shacl:description "The model that is used by a paper or an evaluation."@en;
-  shacl:path lpwc-p:hasModel;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:MachineLearningModel .
+  sh:name "has model"@en;
+  sh:description "The model that is used by a paper or an evaluation."@en;
+  sh:path lpwc-p:hasModel;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:MachineLearningModel .
 
 mldcatap2:PaperShape.hasRepository rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.hasrepository";
-  shacl:name "has repository"@en;
-  shacl:description "This property specifies a repository."@en;
-  shacl:path lpwc-p:hasRepository;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class lpwc:repository .
+  sh:name "has repository"@en;
+  sh:description "This property specifies a repository."@en;
+  sh:path lpwc-p:hasRepository;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class lpwc:repository .
 
 mldcatap2:PaperShape.references rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.references";
-  shacl:name "references"@en;
-  shacl:description "A related resource that is referenced, cited, or otherwise pointed to by the described resource."@en;
-  shacl:path dcterm:references;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:Dataset .
+  sh:name "references"@en;
+  sh:description "A related resource that is referenced, cited, or otherwise pointed to by the described resource."@en;
+  sh:path dcterms:references;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:Dataset .
 
 mldcatap2:PaperShape.subject rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.subject";
-  shacl:name "subject"@en;
-  shacl:description "A topic of the resource."@en;
-  shacl:path dcterm:subject;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "subject"@en;
+  sh:description "A topic of the resource."@en;
+  sh:path dcterms:subject;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:PaperShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.title";
-  shacl:name "title"@en;
-  shacl:description "A name given to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "title"@en;
+  sh:description "A name given to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
-mldcatap2:ParameterShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass it6:Parameter;
-  shacl:property mldcatap2:ParameterShape.title,
+mldcatap2:ParameterShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass it6:Parameter;
+  sh:property mldcatap2:ParameterShape.title,
     mldcatap2:ParameterShape.value .
 
 mldcatap2:ParameterShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Parameter.title";
-  shacl:name "title"@en;
-  shacl:description "The name assigned to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "title"@en;
+  sh:description "The name assigned to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:ParameterShape.value rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Parameter.value";
-  shacl:name "value"@en;
-  shacl:path it6:value;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "value"@en;
+  sh:path it6:value;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
-mldcatap2:ParameterSettingShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass it6:ParameterSetting;
-  shacl:property mldcatap2:ParameterSettingShape.component,
+mldcatap2:ParameterSettingShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass it6:ParameterSetting;
+  sh:property mldcatap2:ParameterSettingShape.component,
     mldcatap2:ParameterSettingShape.name,
     mldcatap2:ParameterSettingShape.value .
 
 mldcatap2:ParameterSettingShape.name rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#ParameterSetting.name";
-  shacl:name "name"@en;
-  shacl:description "The name assigned to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "name"@en;
+  sh:description "The name assigned to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:ParameterSettingShape.component rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#ParameterSetting.component";
-  shacl:name "component"@en;
-  shacl:path it6:component;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "component"@en;
+  sh:path it6:component;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:ParameterSettingShape.value rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#ParameterSetting.value";
-  shacl:name "value"@en;
-  shacl:path it6:value;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "value"@en;
+  sh:path it6:value;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
-mldcatap2:PolicyShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass odrl:Policy .
+mldcatap2:PolicyShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass odrl:Policy .
 
 
-mldcatap2:PredictionShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass it6:Prediction;
-  shacl:property mldcatap2:PredictionShape.format,
+mldcatap2:PredictionShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass it6:Prediction;
+  sh:property mldcatap2:PredictionShape.format,
     mldcatap2:PredictionShape.hasPredictionFeature .
 
 
 mldcatap2:PredictionShape.format rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Prediction.format";
-  shacl:name "format"@en;
-  shacl:path dcterm:format;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class skos:Concept;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "format"@en;
+  sh:path dcterms:format;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class skos:Concept;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:PredictionShape.hasPredictionFeature rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Prediction.haspredictionfeature";
-  shacl:name "has prediction feature"@en;
-  shacl:path it6:hasPredictionFeature;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:PredictionFeature;
-  shacl:minCount 1 .
+  sh:name "has prediction feature"@en;
+  sh:path it6:hasPredictionFeature;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:PredictionFeature;
+  sh:minCount 1 .
 
 
-mldcatap2:PredictionFeatureShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass it6:PredictionFeature;
-  shacl:property mldcatap2:PredictionFeatureShape.title,
+mldcatap2:PredictionFeatureShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass it6:PredictionFeature;
+  sh:property mldcatap2:PredictionFeatureShape.title,
     mldcatap2:PredictionFeatureShape.type .
 
 mldcatap2:PredictionFeatureShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#PredictionFeature.title";
-  shacl:name "title"@en;
-  shacl:description "The name assigned to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "title"@en;
+  sh:description "The name assigned to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:PredictionFeatureShape.type rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#PredictionFeature.type";
-  shacl:name "type"@en;
-  shacl:description "A classification of the resource."@en;
-  shacl:path dcterm:type;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class skos:Concept;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "type"@en;
+  sh:description "A classification of the resource."@en;
+  sh:path dcterms:type;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class skos:Concept;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
-mldcatap2:QualityMeasurementShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:QualityMeasurementShape.dataset,
+mldcatap2:QualityMeasurementShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:QualityMeasurementShape.dataset,
     mldcatap2:QualityMeasurementShape.featureIndex,
     mldcatap2:QualityMeasurementShape.intervalStart,
     mldcatap2:QualityMeasurementShape.intervalEnd,
     mldcatap2:QualityMeasurementShape.type,
     mldcatap2:QualityMeasurementShape.value;
-  shacl:targetClass dqv:QualityMeasurement .
+  sh:targetClass dqv:QualityMeasurement .
 
 mldcatap2:QualityMeasurementShape.dataset rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurement.dataset";
-  shacl:name "dataset"@en;
-  shacl:description "Indicates the data set of which this observation is a part."@en;
-  shacl:path qb:dataSet;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dqv:QualityMeasurementDataset .
+  sh:name "dataset"@en;
+  sh:description "Indicates the data set of which this observation is a part."@en;
+  sh:path qb:dataSet;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dqv:QualityMeasurementDataset .
 
 mldcatap2:QualityMeasurementShape.featureIndex rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurement.featureindex";
-  shacl:name "feature index"@en;
-  shacl:description "The feature on which the quality is measure on."@en;
-  shacl:path it6:featureIndex;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:Feature;
-  shacl:maxCount 1 .
+  sh:name "feature index"@en;
+  sh:description "The feature on which the quality is measure on."@en;
+  sh:path it6:featureIndex;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:Feature;
+  sh:maxCount 1 .
 
 mldcatap2:QualityMeasurementShape.intervalStart rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurement.intervalstart";
-  shacl:name "interval start"@en;
-  shacl:description "The minimum value of the Quality Measure."@en;
-  shacl:path it6:intervalStart;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "interval start"@en;
+  sh:description "The minimum value of the Quality Measure."@en;
+  sh:path it6:intervalStart;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:QualityMeasurementShape.intervalEnd rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurement.intervalend";
-  shacl:name "interval end"@en;
-  shacl:description "The maximum value of the Quality Measure."@en;
-  shacl:path it6:intervalEnd;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "interval end"@en;
+  sh:description "The maximum value of the Quality Measure."@en;
+  sh:path it6:intervalEnd;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:QualityMeasurementShape.type rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurement.type";
-  shacl:name "type"@en;
-  shacl:description "A classification for a quality."@en;
-  shacl:path dcterm:type;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:DataQuality;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "type"@en;
+  sh:description "A classification for a quality."@en;
+  sh:path dcterms:type;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:DataQuality;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:QualityMeasurementShape.value rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurement.value";
-  shacl:name "value"@en;
-  shacl:description "Refers to values computed by metric."@en;
-  shacl:path dqv:value;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "value"@en;
+  sh:description "Refers to values computed by metric."@en;
+  sh:path dqv:value;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
-mldcatap2:QualityMeasurementDatasetShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:QualityMeasurementDatasetShape.evaluationEngineId,
+mldcatap2:QualityMeasurementDatasetShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:QualityMeasurementDatasetShape.evaluationEngineId,
     mldcatap2:QualityMeasurementDatasetShape.identifier;
-  shacl:targetClass dqv:QualityMeasurementDataset .
+  sh:targetClass dqv:QualityMeasurementDataset .
 
 mldcatap2:QualityMeasurementDatasetShape.evaluationEngineId rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurementDataset.evaluationengineid";
-  shacl:name "evaluation engine id"@en;
-  shacl:description "The engine responsible for extracting the features."@en;
-  shacl:path it6:evaluationEngine;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "evaluation engine id"@en;
+  sh:description "The engine responsible for extracting the features."@en;
+  sh:path it6:evaluationEngine;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
   
 mldcatap2:QualityMeasurementDatasetShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurementDataset.identifier";
-  shacl:name "identifier"@en;
-  shacl:description "An unambiguous identifier for the resource."@en;
-  shacl:path dcterm:identifier;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "identifier"@en;
+  sh:description "An unambiguous identifier for the resource."@en;
+  sh:path dcterms:identifier;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
-mldcatap2:RepositoryShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:RepositoryShape.hasFile;
-  shacl:targetClass lpwc:repository .
+mldcatap2:RepositoryShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:RepositoryShape.hasFile;
+  sh:targetClass lpwc:repository .
 
 mldcatap2:RepositoryShape.hasFile rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Repository.hasfile";
-  shacl:path it6:hasFile;
-  shacl:name "has file"@en;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:OutputFilePrediction .
+  sh:path it6:hasFile;
+  sh:name "has file"@en;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:OutputFilePrediction .
 
 
-mldcatap2:ResourceShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass dcat:Resource .
+mldcatap2:ResourceShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass dcat:Resource .
 
 
-mldcatap2:RightsStatementShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass dcterm:RightsStatement .
+mldcatap2:RightsStatementShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass dcterms:RightsStatement .
 
 
-mldcatap2:RiskShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass it6:Risk;
-  shacl:property mldcatap2:RiskShape.description,
+mldcatap2:RiskShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass it6:Risk;
+  sh:property mldcatap2:RiskShape.description,
     mldcatap2:RiskShape.mitigation,
     mldcatap2:RiskShape.probability,
     mldcatap2:RiskShape.severity,
     mldcatap2:RiskShape.title .
 
 mldcatap2:RiskShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Risk.description";
-  shacl:name "description"@en;
-  shacl:description "An account of the resource."@en;
-  shacl:path dcterm:description;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1;
-  shacl:minCount 1 .
+  sh:name "description"@en;
+  sh:description "An account of the resource."@en;
+  sh:path dcterms:description;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1;
+  sh:minCount 1 .
 
 mldcatap2:RiskShape.mitigation rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Risk.mitigation";
-  shacl:name "mitigation"@en;
-  shacl:description "The action of reducing the severity of the risk."@en;
-  shacl:path it6:mitigation;
-  shacl:nodeKind shacl:Literal .
+  sh:name "mitigation"@en;
+  sh:description "The action of reducing the severity of the risk."@en;
+  sh:path it6:mitigation;
+  sh:nodeKind sh:Literal .
 
 mldcatap2:RiskShape.probability rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Risk.probability";
-  shacl:name "probability"@en;
-  shacl:description "The likelihood that a given event will occur."@en;
-  shacl:path it6:probability;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "probability"@en;
+  sh:description "The likelihood that a given event will occur."@en;
+  sh:path it6:probability;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:RiskShape.severity rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Risk.severity";
-  shacl:name "severity"@en;
-  shacl:description "The extent of the damage resulting from an event occurring."@en;
-  shacl:path it6:severity;
-  shacl:maxCount 1 ;
-  shacl:nodeKind shacl:Literal .
+  sh:name "severity"@en;
+  sh:description "The extent of the damage resulting from an event occurring."@en;
+  sh:path it6:severity;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:Literal .
 
 mldcatap2:RiskShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Risk.title";
-  shacl:name "title"@en;
-  shacl:description "A name associated to the risk."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "title"@en;
+  sh:description "A name associated to the risk."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
-mldcatap2:RunShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:RunShape.errorMessage,
+mldcatap2:RunShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:RunShape.errorMessage,
     mldcatap2:RunShape.executes,
     mldcatap2:RunShape.hasEvaluation,
     mldcatap2:RunShape.hasFlow,
@@ -1965,159 +1966,159 @@ mldcatap2:RunShape a shacl:NodeShape;
     mldcatap2:RunShape.runDetails,
     mldcatap2:RunShape.setupId,
     mldcatap2:RunShape.setupString;
-  shacl:targetClass it6:Run .
+  sh:targetClass it6:Run .
 
 mldcatap2:RunShape.errorMessage rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.errormessage";
-  shacl:name "error message"@en;
-  shacl:path it6:errorMessage;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "error message"@en;
+  sh:path it6:errorMessage;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:RunShape.executes rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.executes";
-shacl:name "executes"@en;
-  shacl:description "The Algorithm executed by the run."@en;
-  shacl:path mls:realizes;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class mls:Algorithm;
-  shacl:minCount 1 .
+sh:name "executes"@en;
+  sh:description "The Algorithm executed by the run."@en;
+  sh:path mls:realizes;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class mls:Algorithm;
+  sh:minCount 1 .
 
 mldcatap2:RunShape.hasEvaluation rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hasevaluation";
-  shacl:name "has evaluation"@en;
-  shacl:path it6:hasEvaluation;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:Evaluation .
+  sh:name "has evaluation"@en;
+  sh:path it6:hasEvaluation;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:Evaluation .
 
 mldcatap2:RunShape.hasFlow rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hasflow";
-  shacl:name "has flow"@en;
-  shacl:path it6:hasFlow;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:Flow;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "has flow"@en;
+  sh:path it6:hasFlow;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:Flow;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:RunShape.hasOutputFileDescription rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hasoutputfiledescription";
-  shacl:name "has output file description"@en;
-  shacl:path it6:hasOutputFileDescription;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:OutputFileDescription;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "has output file description"@en;
+  sh:path it6:hasOutputFileDescription;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:OutputFileDescription;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:RunShape.hasOutputFilePrediction rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hasoutputfileprediction";
-  shacl:name "has output file prediction"@en;
-  shacl:path it6:hasOutputFilePrediction;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:OutputFilePrediction;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "has output file prediction"@en;
+  sh:path it6:hasOutputFilePrediction;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:OutputFilePrediction;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:RunShape.hasparametersetting rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hasparametersetting";
-  shacl:name "has parameter setting"@en;
-  shacl:path it6:hasParameterSetting;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:ParameterSetting;
-  shacl:maxCount 1 .
+  sh:name "has parameter setting"@en;
+  sh:path it6:hasParameterSetting;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:ParameterSetting;
+  sh:maxCount 1 .
 
 mldcatap2:RunShape.hasTask rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hastask";
-  shacl:name "has task"@en;
-  shacl:path it6:hasTask;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:Task;
-  shacl:maxCount 1 .
+  sh:name "has task"@en;
+  sh:path it6:hasTask;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:Task;
+  sh:maxCount 1 .
 
 mldcatap2:RunShape.hasUploader rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hasuploader";
-  shacl:name "has uploader"@en;
-  shacl:description "An entity responsible for uploading the resource."@en;
-  shacl:path it6:hasUploader;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class foaf:Agent;
-  shacl:maxCount 1 .
+  sh:name "has uploader"@en;
+  sh:description "An entity responsible for uploading the resource."@en;
+  sh:path it6:hasUploader;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class foaf:Agent;
+  sh:maxCount 1 .
 
 mldcatap2:RunShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.identifier";
-  shacl:name "identifier"@en;
-  shacl:description "An unambiguous identifier for the resource."@en;
-  shacl:path dcterm:identifier;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "identifier"@en;
+  sh:description "An unambiguous identifier for the resource."@en;
+  sh:path dcterms:identifier;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:RunShape.keyword rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.keyword";
-  shacl:name "keyword"@en;
-  shacl:path dcat:keyword;
-  shacl:nodeKind shacl:Literal .
+  sh:name "keyword"@en;
+  sh:path dcat:keyword;
+  sh:nodeKind sh:Literal .
 
 mldcatap2:RunShape.runDetails rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.rundetails";
-  shacl:name "run details"@en;
-  shacl:path it6:runDetails;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "run details"@en;
+  sh:path it6:runDetails;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:RunShape.setupId rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.setupId";
-  shacl:name "setup Id"@en;
-  shacl:path it6:setupId;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "setup Id"@en;
+  sh:path it6:setupId;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:RunShape.setupString rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.setupstring";
-  shacl:name "setup string"@en;
-  shacl:path it6:setupString;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "setup string"@en;
+  sh:path it6:setupString;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 
-mldcatap2:RunCollectionShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:RunCollectionShape.hasRun;
-  shacl:targetClass it6:RunCollection .
+mldcatap2:RunCollectionShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:RunCollectionShape.hasRun;
+  sh:targetClass it6:RunCollection .
 
 mldcatap2:RunCollectionShape.hasRun rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#RunCollection.hasrun";
-  shacl:name "has run"@en;
-  shacl:path it6:hasRun;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:Run;
-  shacl:minCount 1 .
+  sh:name "has run"@en;
+  sh:path it6:hasRun;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:Run;
+  sh:minCount 1 .
 
 
-mldcatap2:SplitShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:SplitShape.description,
+mldcatap2:SplitShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:SplitShape.description,
     mldcatap2:SplitShape.id,
     mldcatap2:SplitShape.isAppliedTo,
     mldcatap2:SplitShape.title;
-  shacl:targetClass it6:Split .
+  sh:targetClass it6:Split .
 
 mldcatap2:SplitShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Split.description";
-  shacl:name "description"@en;
-  shacl:path dcterm:description;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "description"@en;
+  sh:path dcterms:description;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:SplitShape.id rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Split.id";
-  shacl:name "id"@en;
-  shacl:description "An unambiguous identifier for the resource."@en;
-  shacl:path dcterm:identifier;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "id"@en;
+  sh:description "An unambiguous identifier for the resource."@en;
+  sh:path dcterms:identifier;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:SplitShape.isAppliedTo rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Split.isappliedto";
-  shacl:name "is applied to"@en;
-  shacl:path it6:isAppliedTo;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class dcat:Distribution;
-  shacl:minCount 1 .
+  sh:name "is applied to"@en;
+  sh:path it6:isAppliedTo;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class dcat:Distribution;
+  sh:minCount 1 .
 
 mldcatap2:SplitShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Split.title";
-  shacl:name "title"@en;
-  shacl:description "The name assigned to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "title"@en;
+  sh:description "The name assigned to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
-mldcatap2:TaskShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:TaskShape.hasCostMatrix,
+mldcatap2:TaskShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:TaskShape.hasCostMatrix,
     mldcatap2:TaskShape.hasEstimationProcedure,
     mldcatap2:TaskShape.hasEvaluationMeasure,
     mldcatap2:TaskShape.hasOutput,
@@ -2127,125 +2128,125 @@ mldcatap2:TaskShape a shacl:NodeShape;
     mldcatap2:TaskShape.sourceData, 
     mldcatap2:TaskShape.targetFeature,
     mldcatap2:TaskShape.title;
-  shacl:targetClass it6:Task .
+  sh:targetClass it6:Task .
 
 mldcatap2:TaskShape.hasCostMatrix rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.hascostmatrix";
-  shacl:name "has cost matrix"@en;
-  shacl:path it6:hasCostMatrix;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:CostMatrix;
-  shacl:maxCount 1 .
+  sh:name "has cost matrix"@en;
+  sh:path it6:hasCostMatrix;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:CostMatrix;
+  sh:maxCount 1 .
 
 mldcatap2:TaskShape.hasEstimationProcedure rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.hasestimationprocedure";
-  shacl:name "has estimation procedure"@en;
-  shacl:path it6:hasEstimationProcedure;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:EstimationProcedure;
-  shacl:minCount 1 .
+  sh:name "has estimation procedure"@en;
+  sh:path it6:hasEstimationProcedure;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:EstimationProcedure;
+  sh:minCount 1 .
 
 mldcatap2:TaskShape.hasEvaluationMeasure rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.hasevaluationmeasure";
-  shacl:name "has evaluation measure"@en;
-  shacl:path it6:hasEvaluationMeasure;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:EvaluationMeasure;
-  shacl:minCount 1 .
+  sh:name "has evaluation measure"@en;
+  sh:path it6:hasEvaluationMeasure;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:EvaluationMeasure;
+  sh:minCount 1 .
 
 mldcatap2:TaskShape.hasOutput rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.hasoutput";
-  shacl:name "has output"@en;
-  shacl:path it6:hasOutput;
-  #shacl:nodeKind shacl:BlankNodeOrIRI
-  shacl:class it6:Prediction;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "has output"@en;
+  sh:path it6:hasOutput;
+  #sh:nodeKind sh:BlankNodeOrIRI
+  sh:class it6:Prediction;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:TaskShape.hasTaskType rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.hastasktype";
-  shacl:name "has task type"@en;
-  shacl:path it6:hasTaskType;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:TaskType;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "has task type"@en;
+  sh:path it6:hasTaskType;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:TaskType;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:TaskShape.id rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.id";
-  shacl:name "id"@en;
-  shacl:description "An unambiguous identifier for the resource."@en;
-  shacl:path dcterm:identifier;
-  shacl:nodeKind shacl:Literal;
-  shacl:maxCount 1 .
+  sh:name "id"@en;
+  sh:description "An unambiguous identifier for the resource."@en;
+  sh:path dcterms:identifier;
+  sh:nodeKind sh:Literal;
+  sh:maxCount 1 .
 
 mldcatap2:TaskShape.keyword rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.keyword";
-  shacl:name "keyword"@en;
-  shacl:description "A keyword or tag describing the resource."@en;
-  shacl:path dcat:keyword;
-  shacl:nodeKind shacl:Literal .
+  sh:name "keyword"@en;
+  sh:description "A keyword or tag describing the resource."@en;
+  sh:path dcat:keyword;
+  sh:nodeKind sh:Literal .
 
 mldcatap2:TaskShape.sourceData rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.sourcedata";
-  shacl:name "source data"@en;
-  shacl:path it6:sourceData;
-  #shacl:nodeKind shacl:BlankNodeOrIRI
-  shacl:class dcat:Dataset;
-  shacl:minCount 1 .
+  sh:name "source data"@en;
+  sh:path it6:sourceData;
+  #sh:nodeKind sh:BlankNodeOrIRI
+  sh:class dcat:Dataset;
+  sh:minCount 1 .
 
 mldcatap2:TaskShape.targetFeature rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.targetfeature";
-  shacl:name "target feature"@en;
-  shacl:path it6:targetFeature;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:Feature;
-  shacl:minCount 1 .
+  sh:name "target feature"@en;
+  sh:path it6:targetFeature;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:Feature;
+  sh:minCount 1 .
 
 mldcatap2:TaskShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.title";
-  shacl:name "title"@en;
-  shacl:description "The name assigned to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "title"@en;
+  sh:description "The name assigned to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
-mldcatap2:TaskCollectionShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:TaskCollectionShape.hasTask;
-  shacl:targetClass it6:TaskCollection .
+mldcatap2:TaskCollectionShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:TaskCollectionShape.hasTask;
+  sh:targetClass it6:TaskCollection .
 
 mldcatap2:TaskCollectionShape.hasTask rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#TaskCollection.hastask";
-  shacl:name "has task"@en;
-  shacl:path it6:hasTask;
-  #shacl:nodeKind shacl:BlankNodeOrIRI;
-  shacl:class it6:Task;
-  shacl:minCount 1 .
+  sh:name "has task"@en;
+  sh:path it6:hasTask;
+  #sh:nodeKind sh:BlankNodeOrIRI;
+  sh:class it6:Task;
+  sh:minCount 1 .
 
 
-mldcatap2:TaskTypeShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:property mldcatap2:TaskTypeShape.description,
+mldcatap2:TaskTypeShape a sh:NodeShape;
+  sh:closed false;
+  sh:property mldcatap2:TaskTypeShape.description,
     mldcatap2:TaskTypeShape.id,
     mldcatap2:TaskTypeShape.title ;
-  shacl:targetClass it6:TaskType .
+  sh:targetClass it6:TaskType .
 
 mldcatap2:TaskTypeShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#TaskType.description";
-  shacl:name "description"@en;
-  shacl:path skos:definition;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "description"@en;
+  sh:path skos:definition;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:TaskTypeShape.id rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#TaskType.id";
-  shacl:name "id"@en;
-  shacl:description "An unambiguous identifier for the resource."@en;
-  shacl:path dcterm:identifier;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "id"@en;
+  sh:description "An unambiguous identifier for the resource."@en;
+  sh:path dcterms:identifier;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 mldcatap2:TaskTypeShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#TaskType.title";
-  shacl:name "title"@en;
-  shacl:description "The name assigned to the resource."@en;
-  shacl:path dcterm:title;
-  shacl:nodeKind shacl:Literal;
-  shacl:minCount 1;
-  shacl:maxCount 1 .
+  sh:name "title"@en;
+  sh:description "The name assigned to the resource."@en;
+  sh:path dcterms:title;
+  sh:nodeKind sh:Literal;
+  sh:minCount 1;
+  sh:maxCount 1 .
 
 
-mldcatap2:TemporalLiteralShape a shacl:NodeShape;
-  shacl:closed false;
-  shacl:targetClass rdfs:Literal .
+mldcatap2:TemporalLiteralShape a sh:NodeShape;
+  sh:closed false;
+  sh:targetClass rdfs:Literal .
