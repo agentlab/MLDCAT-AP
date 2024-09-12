@@ -103,7 +103,7 @@ mldcatap2:AgentShape a sh:NodeShape;
   sh:property mldcatap2:AgentShape.name;
   sh:targetClass foaf:Agent .
 
-mldcatap2:AgentShape.name rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Agent.name";
+mldcatap2:AgentShape.name rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Agent.name>;
   sh:path foaf:name;
   sh:name "name"@en;
   sh:description "A name of the agent."@en;
@@ -117,14 +117,14 @@ mldcatap2:AlgorithmShape a sh:NodeShape;
     mldcatap2:AlgorithmShape.hasLearningMethodType;
   sh:targetClass mls:Algorithm .
 
-mldcatap2:AlgorithmShape.hasAlgorithmType rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Algorithm.hasalgorithmtype";
+mldcatap2:AlgorithmShape.hasAlgorithmType rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Algorithm.hasalgorithmtype>;
   sh:name "has algorithm type"@en;
   sh:description "A relation between an algorithm the category of algorithms that belongs to."@en;
   sh:path mlso:hasAlgorithmType;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class skos:Concept .
 
-mldcatap2:AlgorithmShape.hasLearningMethodType rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Algorithm.haslearningmethodtype";
+mldcatap2:AlgorithmShape.hasLearningMethodType rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Algorithm.haslearningmethodtype>;
   sh:name "has learning method type"@en;
   sh:description "A relation between an algorithm learning method and the category of algorithm learning methods that it belongs to."@en;
   sh:path mlso:hasLearningMethodType;
@@ -140,21 +140,21 @@ mldcatap2:BibliographicReferenceShape a sh:NodeShape;
     mldcatap2:BibliographicReferenceShape.references;
   sh:targetClass biro:BibliographicReference .
 
-mldcatap2:BibliographicReferenceShape.bibliographicCitation rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#BibliographicReference.bibliographiccitation";
+mldcatap2:BibliographicReferenceShape.bibliographicCitation rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#BibliographicReference.bibliographiccitation>;
   sh:name "bibliographic citation"@en;
   sh:path dcterms:bibliographicCitation;
   sh:nodeKind sh:Literal;
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:BibliographicReferenceShape.format rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#BibliographicReference.format";
+mldcatap2:BibliographicReferenceShape.format rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#BibliographicReference.format>;
   sh:name "format"@en;
   sh:path dcterms:format;
   sh:nodeKind sh:Literal;
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:BibliographicReferenceShape.references rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#BibliographicReference.references";
+mldcatap2:BibliographicReferenceShape.references rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#BibliographicReference.references>;
   sh:name "references"@en;
   sh:description "A related resource that is referenced, cited, or otherwise pointed to by the described resource."@en;
   sh:path dcterms:references;
@@ -180,7 +180,7 @@ mldcatap2:CatalogShape a sh:NodeShape;
   sh:targetClass dcat:Catalog .
 
 
-mldcatap2:CatalogShape.creator rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.creator";
+mldcatap2:CatalogShape.creator rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.creator>;
   sh:name "creator"@en;
   sh:description "An entity responsible for the creation of the catalogue."@en;
   sh:path dcterms:creator;
@@ -188,20 +188,21 @@ mldcatap2:CatalogShape.creator rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP
   sh:class foaf:Agent;
   sh:maxCount 1 .
 
-mldcatap2:CatalogShape.dataset rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.dataset";
-  sh:name "dataset"@en;sh:path dcat:dataset;
+mldcatap2:CatalogShape.dataset rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.dataset>;
+  sh:name "dataset"@en;
+  sh:path dcat:dataset;
   sh:description "A Dataset that is part of the Catalogue."@en;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dcat:Dataset .
 
-mldcatap2:CatalogShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.description";
+mldcatap2:CatalogShape.description rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.description>;
   sh:name "description"@en;
   sh:description "A free-text account of the Catalogue."@en;
   sh:path dcterms:description;
   sh:nodeKind sh:Literal;
   sh:minCount 1 .
 
-mldcatap2:CatalogShape.homepage rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.homepage";
+mldcatap2:CatalogShape.homepage rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.homepage>;
   sh:name "homepage"@en;
   sh:description "A web page that acts as the main page for the Catalogue."@en;
   sh:path foaf:homepage;
@@ -209,20 +210,20 @@ mldcatap2:CatalogShape.homepage rdfs:seeAlso "https://semiceu.github.io/MLDCAT-A
   sh:class foaf:Document;
   sh:maxCount 1 .
 
-mldcatap2:CatalogShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.identifier";
+mldcatap2:CatalogShape.identifier rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.identifier>;
   sh:name "identifier"@en;
   sh:description "A unique identifier of the item."@en;
   sh:path dcterms:identifier;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:CatalogShape.keyword rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.keyword";
+mldcatap2:CatalogShape.keyword rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.keyword>;
   sh:name "keyword"@en;
   sh:description "A keyword or tag describing the resource."@en;
   sh:path dcat:keyword;
   sh:nodeKind sh:Literal .
 
-mldcatap2:CatalogShape.license rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.license";
+mldcatap2:CatalogShape.license rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.license>;
   sh:name "license"@en;
   sh:description "A license under which the Catalogue can be used or reused."@en;
   sh:path dcterms:license;
@@ -230,14 +231,14 @@ mldcatap2:CatalogShape.license rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP
   sh:class dcterms:LicenseDocument;
   sh:maxCount 1 .
 
-mldcatap2:CatalogShape.modificationDate rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.modificationdate";
+mldcatap2:CatalogShape.modificationDate rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.modificationdate>;
   sh:name "modification date"@en;
   sh:description "The most recent date on which the Catalogue was modified."@en;
   sh:path dcterms:modified;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:CatalogShape.publisher rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.publisher";
+mldcatap2:CatalogShape.publisher rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.publisher>;
   sh:name "publisher"@en;
   sh:description "An entity (organization) responsible for making the Catalogue available."@en;
   sh:path dcterms:publisher;
@@ -246,14 +247,14 @@ mldcatap2:CatalogShape.publisher rdfs:seeAlso "https://semiceu.github.io/MLDCAT-
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:CatalogShape.record rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.record";
+mldcatap2:CatalogShape.record rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.record>;
   sh:name "record"@en;
   sh:description "A Catalogue Record that is part of the Catalogue."@en;
   sh:path dcat:record;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dcat:CatalogRecord .
 
-mldcatap2:CatalogShape.releaseDate rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.releasedate";
+mldcatap2:CatalogShape.releaseDate rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.releasedate>;
   sh:name "release date"@en;
   # Fixed description literal
   sh:description "The date of formal issuance (e.g., publication) of the Catalogue."@en;
@@ -261,14 +262,14 @@ mldcatap2:CatalogShape.releaseDate rdfs:seeAlso "https://semiceu.github.io/MLDCA
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:CatalogShape.service rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.service";
+mldcatap2:CatalogShape.service rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.service>;
   sh:name "service"@en;
   sh:description "A site or end-point (Data Service) that is listed in the Catalogue."@en;
   sh:path dcat:service;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dcat:DataService .
 
-mldcatap2:CatalogShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.title";
+mldcatap2:CatalogShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.title>;
   sh:name "title"@en;
   sh:description "A name given to the Catalogue."@en;
   sh:path dcterms:title;
@@ -284,20 +285,20 @@ mldcatap2:CatalogRecordShape a sh:NodeShape;
     mldcatap2:CatalogRecordShape.primaryTopic;
   sh:targetClass dcat:CatalogRecord .
 
-mldcatap2:CatalogRecordShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#CatalogueRecord.description";
+mldcatap2:CatalogRecordShape.description rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#CatalogueRecord.description>;
   sh:name "description"@en;
   sh:description "A free-text account of the record."@en;
   sh:path dcterms:description;
   sh:nodeKind sh:Literal .
 
-mldcatap2:CatalogRecordShape.descriptionVersion rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#CatalogueRecord.descriptionversion";
+mldcatap2:CatalogRecordShape.descriptionVersion rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#CatalogueRecord.descriptionversion>;
   sh:name "description version"@en;
   sh:description "It refers to the version of the description. '1' for original version."@en;
   sh:path it6:descriptionVersion;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:CatalogRecordShape.modificationDate rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#CatalogueRecord.modificationdate";
+mldcatap2:CatalogRecordShape.modificationDate rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#CatalogueRecord.modificationdate>;
   sh:name "modification date"@en;
   sh:description "The most recent date on which the Catalogue entry was changed or modified."@en;
   sh:path dcterms:modified;
@@ -305,7 +306,7 @@ mldcatap2:CatalogRecordShape.modificationDate rdfs:seeAlso "https://semiceu.gith
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:CatalogRecordShape.primaryTopic rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#CatalogueRecord.primarytopic";
+mldcatap2:CatalogRecordShape.primaryTopic rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#CatalogueRecord.primarytopic>;
   sh:name "primary topic"@en;
   sh:description "A link to the Dataset, Data service or Catalog described in the record."@en;
   sh:path foaf:primaryTopic;
@@ -321,7 +322,7 @@ mldcatap2:ChecksumShape a sh:NodeShape;
     mldcatap2:ChecksumShape.checksumValue;
   sh:targetClass spdx:Checksum .
 
-mldcatap2:ChecksumShape.algorithm rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Checksum.algorithm";
+mldcatap2:ChecksumShape.algorithm rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Checksum.algorithm>;
   sh:name "algorithm"@en;
   sh:description "The algorithm used to produce the subject Checksum."@en;
   sh:path spdx:algorithm;
@@ -330,7 +331,7 @@ mldcatap2:ChecksumShape.algorithm rdfs:seeAlso "https://semiceu.github.io/MLDCAT
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:ChecksumShape.checksumValue rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Checksum.checksumvalue";
+mldcatap2:ChecksumShape.checksumValue rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Checksum.checksumvalue>;
   sh:name "checksum value"@en;
   sh:description "A lower case hexadecimal encoded digest value produced using a specific algorithm."@en;
   sh:path spdx:checksumValue;
@@ -355,20 +356,20 @@ mldcatap2:CollectionShape a sh:NodeShape;
     mldcatap2:CollectionShape.title,
     mldcatap2:CollectionShape.visibility .
 
-mldcatap2:CollectionShape.creationDate rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.creationdate";
+mldcatap2:CollectionShape.creationDate rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.creationdate>;
   sh:name "creation date"@en;
   sh:path it6:creationDate;
   sh:nodeKind sh:Literal;
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:CollectionShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.description";
+mldcatap2:CollectionShape.description rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.description>;
   sh:name "description"@en;
   sh:path dcterms:description;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:CollectionShape.hasUploader rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.hasuploader";
+mldcatap2:CollectionShape.hasUploader rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.hasuploader>;
   sh:name "has uploader"@en;
   sh:path it6:hasUploader;
   #sh:nodeKind sh:BlankNodeOrIRI;
@@ -376,7 +377,7 @@ mldcatap2:CollectionShape.hasUploader rdfs:seeAlso "https://semiceu.github.io/ML
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:CollectionShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.identifier";
+mldcatap2:CollectionShape.identifier rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.identifier>;
   sh:name "identifier"@en;
   sh:description "An unambiguous identifier for the resource."@en;
   sh:path dcterms:identifier;
@@ -384,7 +385,7 @@ mldcatap2:CollectionShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLD
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:CollectionShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.title";
+mldcatap2:CollectionShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.title>;
   sh:name "title"@en;
   sh:description "A name assigned to the resource."@en;
   sh:path dcterms:title;
@@ -392,7 +393,7 @@ mldcatap2:CollectionShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-A
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:CollectionShape.visibility rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.visibility";
+mldcatap2:CollectionShape.visibility rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Collection.visibility>;
   sh:name "visibility"@en;
   sh:path it6:visibility;
   #sh:nodeKind sh:BlankNodeOrIRI;
@@ -434,7 +435,7 @@ mldcatap2:DatasetShape a sh:NodeShape;
     mldcatap2:DatasetShape.visibility;
   sh:targetClass dcat:Dataset .
 
-mldcatap2:DatasetShape.accessRights rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.accessrights";
+mldcatap2:DatasetShape.accessRights rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.accessrights>;
   sh:name "access rights"@en;
   sh:description "Information that indicates whether the Dataset is publicly accessible, has access restrictions or is not public."@en;
   sh:path dcterms:accessRights;
@@ -442,7 +443,7 @@ mldcatap2:DatasetShape.accessRights rdfs:seeAlso "https://semiceu.github.io/MLDC
   sh:class dcterms:RightsStatement;
   sh:maxCount 1 .
 
-mldcatap2:DatasetShape.collectionDate rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.collectiondate";
+mldcatap2:DatasetShape.collectionDate rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.collectiondate>;
   sh:name "collection date"@en;
   sh:description "The date the data was originally collected, given by the uploader."@en;
   sh:path it6:collectionDate;
@@ -450,75 +451,75 @@ mldcatap2:DatasetShape.collectionDate rdfs:seeAlso "https://semiceu.github.io/ML
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:DatasetShape.contributor rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.contributor";
+mldcatap2:DatasetShape.contributor rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.contributor>;
   sh:name "contributor"@en;
   sh:description "An entity responsible for making contributions to the dataset."@en;
   sh:path dcterms:contributor;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class foaf:Agent .
 
-mldcatap2:DatasetShape.creator rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.creator";
+mldcatap2:DatasetShape.creator rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.creator>;
   sh:name "creator"@en;
   sh:description "An entity responsible for producing the Dataset."@en;
   sh:path dcterms:creator;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class foaf:Agent .
 
-mldcatap2:DatasetShape.datasetDistribution rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.datasetdistribution";
+mldcatap2:DatasetShape.datasetDistribution rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.datasetdistribution>;
   sh:name "dataset distribution"@en;
   sh:description "An available Distribution for the Dataset."@en;
   sh:path dcat:distribution;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dcat:Distribution .
 
-mldcatap2:DatasetShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.description";
+mldcatap2:DatasetShape.description rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.description>;
   sh:name "description"@en;
   sh:description "A free-text account of the Dataset."@en;
   sh:path dcterms:description;
   sh:nodeKind sh:Literal;
   sh:minCount 1 .
 
-mldcatap2:DatasetShape.hasVersion rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.hasversion";
+mldcatap2:DatasetShape.hasVersion rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.hasversion>;
   sh:name "has version"@en;
   sh:description "A related Dataset that is a version, edition, or adaptation of the described Dataset."@en;
   sh:path dcat:hasVersion;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dcat:Dataset .
 
-mldcatap2:DatasetShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.identifier";
+mldcatap2:DatasetShape.identifier rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.identifier>;
   sh:name "identifier"@en;
   sh:description "The main identifier for the Dataset, e.g. the URI or other unique identifier in the context of the Catalogue."@en;
   sh:path dcterms:identifier;
   sh:nodeKind sh:Literal .
 
-mldcatap2:DatasetShape.isReferencedBy rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.isreferencedby";
+mldcatap2:DatasetShape.isReferencedBy rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.isreferencedby>;
   sh:name "is referenced by"@en;
   sh:description "A related resource that references, cites, or otherwise points to the dataset."@en;
   sh:path dcterms:isReferencedBy;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class lpwc:paper .
 
-mldcatap2:DatasetShape.isVersionOf rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.isversionof";
+mldcatap2:DatasetShape.isVersionOf rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.isversionof>;
   sh:name "is version of"@en;
   sh:description "This property refers to a related Dataset of which the described Dataset is a version, edition, or adaptation."@en;
   sh:path dcterms:isVersionOf;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dcat:Dataset .
 
-mldcatap2:DatasetShape.keyword rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.keyword";
+mldcatap2:DatasetShape.keyword rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.keyword>;
   sh:name "keyword"@en;
   sh:description "A keyword or tag describing the Dataset."@en;
   sh:path dcat:keyword;
   sh:nodeKind sh:Literal .
 
-mldcatap2:DatasetShape.landingPage rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.landingpage";
+mldcatap2:DatasetShape.landingPage rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.landingpage>;
   sh:name "landing page"@en;
   sh:description "A web page that provides access to the Dataset, its Distributions and/or additional information."@en;
   sh:path dcat:landingPage;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class foaf:Document .
 
-mldcatap2:DatasetShape.publisher rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.publisher";
+mldcatap2:DatasetShape.publisher rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.publisher>;
   sh:name "publisher"@en;
   sh:description "An entity (organization) responsible for making the resource available."@en;
   sh:path dcterms:publisher;
@@ -526,14 +527,14 @@ mldcatap2:DatasetShape.publisher rdfs:seeAlso "https://semiceu.github.io/MLDCAT-
   sh:class foaf:Agent;
   sh:maxCount 1 .
 
-mldcatap2:DatasetShape.releaseDate rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.releasedate";
+mldcatap2:DatasetShape.releaseDate rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.releasedate>;
   sh:name "release date"@en;
   sh:description "The date of formal issuance (e.g., publication) of the Dataset."@en;
   sh:path dcterms:issued;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:DatasetShape.status rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.status";
+mldcatap2:DatasetShape.status rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.status>;
   sh:name "status"@en;
   sh:description "The status of the dataset in the context of the publication process."@en;
   sh:path adms:status;
@@ -541,28 +542,28 @@ mldcatap2:DatasetShape.status rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/
   sh:class skos:Concept;
   sh:maxCount 1 .
 
-mldcatap2:DatasetShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.title";
+mldcatap2:DatasetShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.title>;
   sh:name "title"@en;
   sh:description "A name given to the Dataset."@en;
   sh:path dcterms:title;
   sh:nodeKind sh:Literal;
   sh:minCount 1 .
 
-mldcatap2:DatasetShape.versionInfo rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.versioninfo";
+mldcatap2:DatasetShape.versionInfo rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.versioninfo>;
   sh:name "version info"@en;
   sh:description "This property contains a version number or other version designation of the Dataset."@en;
   sh:path owl:versionInfo;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:DatasetShape.versionLabel rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.versionlabel";
+mldcatap2:DatasetShape.versionLabel rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.versionlabel>;
   sh:name "version label"@en;
   sh:description "Version label provided by user, something relevant to the user. Can also be a date, hash, or some other type of id."@en;
   sh:path it6:versionLabel;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:DatasetShape.visibility rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.visibility";
+mldcatap2:DatasetShape.visibility rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.visibility>;
   sh:name "visibility"@en;
   sh:description "Who can see the dataset. Typical values: 'Everyone','All my friends','Only me'. Can also be any of the user's circles."@en;
   sh:path it6:visibility;
@@ -578,14 +579,14 @@ mldcatap2:DataQualityShape a sh:NodeShape;
     mldcatap2:DataQualityShape.identifier,
     mldcatap2:DataQualityShape.title .
 
-mldcatap2:DataQualityShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataquality.description";
+mldcatap2:DataQualityShape.description rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataquality.description>;
   sh:name "description"@en;
   sh:description "An explanation of the quality type."@en;
   sh:path dcterms:description;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:DataQualityShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataquality.identifier";
+mldcatap2:DataQualityShape.identifier rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataquality.identifier>;
   sh:name "identifier"@en;
   sh:description "An unambiguous identifier for the resource."@en;
   sh:path dcterms:identifier;
@@ -593,7 +594,7 @@ mldcatap2:DataQualityShape.identifier rdfs:seeAlso "https://semiceu.github.io/ML
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:DataQualityShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataquality.title";
+mldcatap2:DataQualityShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataquality.title>;
   sh:name "title"@en;
   sh:description "The name assigned to the resource."@en;
   sh:path dcterms:title;
@@ -609,14 +610,14 @@ mldcatap2:DataServiceShape a sh:NodeShape;
 mldcatap2:DataServiceShape sh:property mldcatap2:DataServiceShape.servesDataset,
     mldcatap2:DataServiceShape.endpointURL, mldcatap2:DataServiceShape.title .
 
-mldcatap2:DataServiceShape.servesDataset rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#DataService.servesdataset";
+mldcatap2:DataServiceShape.servesDataset rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#DataService.servesdataset>;
   sh:name "serves dataset"@en;
   sh:description "A collection of data that this data service can distribute."@en;
   sh:path dcat:servesDataset;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dcat:Dataset .
 
-mldcatap2:DataServiceShape.endpointURL rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#DataService.endpointURL";
+mldcatap2:DataServiceShape.endpointURL rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#DataService.endpointURL>;
   sh:name "endpoint URL"@en;
   sh:description "The root location or primary endpoint of the service (an IRI)."@en;
   sh:path dcat:endpointURL;
@@ -624,7 +625,7 @@ mldcatap2:DataServiceShape.endpointURL rdfs:seeAlso "https://semiceu.github.io/M
   sh:class dcat:Resource;
   sh:minCount 1 .
 
-mldcatap2:DataServiceShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#DataService.title";
+mldcatap2:DataServiceShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#DataService.title>;
   sh:name "title"@en;
   sh:description "A name given to the Data Service."@en;
   sh:path dcterms:title;
@@ -656,14 +657,14 @@ mldcatap2:DistributionShape a sh:NodeShape;
   sh:targetClass dcat:Distribution .
 
 
-mldcatap2:DistributionShape.accessService rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.accessservice";
+mldcatap2:DistributionShape.accessService rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.accessservice>;
   sh:name "access service"@en;
   sh:description "A data service that gives access to the distribution of the dataset."@en;
   sh:path dcat:accessService;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dcat:DataService .
 
-mldcatap2:DistributionShape.accessURL rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.accessURL";
+mldcatap2:DistributionShape.accessURL rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.accessURL>;
   sh:name "access URL"@en;
   # fixed description literal
   sh:description "A URL that gives access to a Distribution of the Dataset."@en;
@@ -672,7 +673,7 @@ mldcatap2:DistributionShape.accessURL rdfs:seeAlso "https://semiceu.github.io/ML
   sh:class dcat:Resource;
   sh:minCount 1 .
 
-mldcatap2:DistributionShape.byteSize rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.bytesize";
+mldcatap2:DistributionShape.byteSize rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.bytesize>;
   sh:name "byte size"@en;
   sh:description "The size of a Distribution in bytes."@en;
   sh:path dcat:byteSize;
@@ -680,7 +681,7 @@ mldcatap2:DistributionShape.byteSize rdfs:seeAlso "https://semiceu.github.io/MLD
   sh:datatype xsd:nonNegativeInteger;
   sh:maxCount 1 .
 
-mldcatap2:DistributionShape.checksum rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.checksum";
+mldcatap2:DistributionShape.checksum rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.checksum>;
   sh:name "checksum"@en;
   sh:description "A mechanism that can be used to verify that the contents of a distribution have not changed."@en;
   sh:path spdx:checksum;
@@ -688,20 +689,20 @@ mldcatap2:DistributionShape.checksum rdfs:seeAlso "https://semiceu.github.io/MLD
   sh:class spdx:Checksum;
   sh:maxCount 1 .
 
-mldcatap2:DistributionShape.defaultTargetAttribute rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.defaulttargetattribute";
+mldcatap2:DistributionShape.defaultTargetAttribute rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.defaulttargetattribute>;
   sh:name "default target attribute"@en;
   sh:description "The default target attribute, if it exists."@en;
   sh:path it6:defaultTargetAttribute;
   sh:nodeKind sh:Literal .
 
-mldcatap2:DistributionShape.downloadURL rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.downloadURL";
+mldcatap2:DistributionShape.downloadURL rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.downloadURL>;
   sh:path dcat:downloadURL;
   sh:name "download URL"@en;
   sh:description "A URL that is a direct link to a downloadable file in a given format."@en;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dcat:Resource .
 
-mldcatap2:DistributionShape.format rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.format";
+mldcatap2:DistributionShape.format rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.format>;
   sh:name "format"@en;
   sh:description "The file format of the Distribution."@en;
   sh:path dcterms:format;
@@ -709,14 +710,14 @@ mldcatap2:DistributionShape.format rdfs:seeAlso "https://semiceu.github.io/MLDCA
   sh:class dcterms:MediaTypeOrExtent;
   sh:maxCount 1 .
 
-mldcatap2:DistributionShape.hasFeature rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.hasfeature";
+mldcatap2:DistributionShape.hasFeature rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.hasfeature>;
   sh:name "has feature"@en;
   sh:description "The attribute or column being part of a distribution."@en;
   sh:path it6:hasFeature;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class it6:Feature .
 
-mldcatap2:DistributionShape.hasPolicy rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.haspolicy";
+mldcatap2:DistributionShape.hasPolicy rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.haspolicy>;
   sh:name "has policy"@en;
   sh:description "The policy expressing the rights associated with the distribution if using the [[ODRL]] vocabulary."@en;
   sh:path odrl:hasPolicy;
@@ -724,7 +725,7 @@ mldcatap2:DistributionShape.hasPolicy rdfs:seeAlso "https://semiceu.github.io/ML
   sh:class odrl:Policy;
   sh:maxCount 1 .
 
-mldcatap2:DistributionShape.hasQualityMeasurement rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.hasqualitymeasurement";
+mldcatap2:DistributionShape.hasQualityMeasurement rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.hasqualitymeasurement>;
   sh:name "has quality measurement"@en;
   sh:description "Refers to the performed quality measurements. Quality measurements can be performed to any kind of resource (e.g., a dataset, a linkset, a graph, a set of triples). However, in the DQV context, this property is generally expected to be used in statements in which subjects are instances of dcat:Dataset or dcat:Distribution."@en;
   sh:path dqv:hasQualityMeasurement;
@@ -732,27 +733,27 @@ mldcatap2:DistributionShape.hasQualityMeasurement rdfs:seeAlso "https://semiceu.
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:minCount 1 .
 
-mldcatap2:DistributionShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.identifier";
+mldcatap2:DistributionShape.identifier rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.identifier>;
   sh:name "identifier"@en;
   sh:description "An unambiguous identifier for the resource."@en;
   sh:path dcterms:identifier;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:DistributionShape.ignoreAttribute rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.ignoreattribute";
+mldcatap2:DistributionShape.ignoreAttribute rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.ignoreattribute>;
   sh:name "ignore attribute"@en;
   sh:description "Attributes that should be excluded in modelling, such as identifiers and indexes."@en;
   sh:path it6:ignoreAttribute;
   sh:nodeKind sh:Literal .
 
-mldcatap2:DistributionShape.language rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.language";
+mldcatap2:DistributionShape.language rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.language>;
   sh:name "language"@en;
   sh:description "A language used in the Distribution."@en;
   sh:path dcterms:language;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dcterms:LinguisticSystem .
 
-mldcatap2:DistributionShape.license rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.license";
+mldcatap2:DistributionShape.license rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.license>;
   sh:name "license"@en;
   sh:description "A license under which the Distribution is made available."@en;
   sh:path dcterms:license;
@@ -760,35 +761,35 @@ mldcatap2:DistributionShape.license rdfs:seeAlso "https://semiceu.github.io/MLDC
   sh:class dcterms:LicenseDocument;
   sh:maxCount 1 .
 
-mldcatap2:DistributionShape.processingDate rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.processingdate";
+mldcatap2:DistributionShape.processingDate rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.processingdate>;
   sh:name "processing date"@en;
   sh:description "Date of processing."@en;
   sh:path it6:processingDate;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:DistributionShape.processingError rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.processingerror";
+mldcatap2:DistributionShape.processingError rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.processingerror>;
   sh:name "processing error"@en;
   sh:description "Errors discovered while processing the dataset."@en;
   sh:path it6:processingError;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:DistributionShape.processingWarning rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.processingwarning";
+mldcatap2:DistributionShape.processingWarning rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.processingwarning>;
   sh:name "processing warning"@en;
   sh:description "Warnings while processing the dataset."@en;
   sh:path it6:processingWarning;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:DistributionShape.rowIDattribute rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.rowIDattribute";
+mldcatap2:DistributionShape.rowIDattribute rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.rowIDattribute>;
   sh:name "row ID attribute"@en;
   sh:description "The attribute that represents the row-id column, if present in the dataset."@en;
   sh:path it6:rowIDAttribute;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:DistributionShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.title";
+mldcatap2:DistributionShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.title>;
   sh:name "title"@en;
   sh:description "A name given to the Distribution."@en;
   sh:path dcterms:title;
@@ -805,7 +806,7 @@ mldcatap2:EngagementShape a sh:NodeShape;
   sh:property mldcatap2:EngagementShape.download,
     mldcatap2:EngagementShape.like .
 
-mldcatap2:EngagementShape.download rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Engagement.download";
+mldcatap2:EngagementShape.download rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Engagement.download>;
   sh:name "download"@en;
   sh:description "The number of downloads of the machine learning model."@en;
   sh:path it6:download;
@@ -813,7 +814,7 @@ mldcatap2:EngagementShape.download rdfs:seeAlso "https://semiceu.github.io/MLDCA
   sh:datatype xsd:integer;
   sh:maxCount 1 .
 
-mldcatap2:EngagementShape.like rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Engagement.like";
+mldcatap2:EngagementShape.like rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Engagement.like>;
   sh:name "like"@en;
   sh:description "The number of likes the machine learning model received."@en;
   sh:path it6:like;
@@ -832,7 +833,7 @@ mldcatap2:EstimationProcedureShape a sh:NodeShape;
     mldcatap2:EstimationProcedureShape.title, 
     mldcatap2:EstimationProcedureShape.type .
 
-mldcatap2:EstimationProcedureShape.dataSplitsURL rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EstimationProcedure.datasplitsURL";
+mldcatap2:EstimationProcedureShape.dataSplitsURL rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EstimationProcedure.datasplitsURL>;
   sh:name "data splits URL"@en;
   sh:path it6:dataSplitsURL;
   #sh:nodeKind sh:BlankNodeOrIRI;
@@ -840,7 +841,7 @@ mldcatap2:EstimationProcedureShape.dataSplitsURL rdfs:seeAlso "https://semiceu.g
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:EstimationProcedureShape.type rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EstimationProcedure.type";
+mldcatap2:EstimationProcedureShape.type rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EstimationProcedure.type>;
   sh:name "type"@en;
   sh:description "A classification of the resource."@en;
   sh:path dcterms:type;
@@ -849,7 +850,7 @@ mldcatap2:EstimationProcedureShape.type rdfs:seeAlso "https://semiceu.github.io/
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:EstimationProcedureShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EstimationProcedure.title";
+mldcatap2:EstimationProcedureShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EstimationProcedure.title>;
   sh:name "title"@en;
   sh:description "The name assigned to the resource."@en;
   sh:path dcterms:title;
@@ -857,14 +858,14 @@ mldcatap2:EstimationProcedureShape.title rdfs:seeAlso "https://semiceu.github.io
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:EstimationProcedureShape.hasParameter rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EstimationProcedure.hasparameter";
+mldcatap2:EstimationProcedureShape.hasParameter rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EstimationProcedure.hasparameter>;
   sh:name "has parameter"@en;
   sh:path it6:hasParameter;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class it6:Parameter;
   sh:minCount 1 .
 
-mldcatap2:EstimationProcedureShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EstimationProcedure.identifier";
+mldcatap2:EstimationProcedureShape.identifier rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EstimationProcedure.identifier>;
   sh:name "identifier"@en;
   sh:description "An unambiguous identifier for the resource."@en;
   sh:path dcterms:identifier;
@@ -872,7 +873,7 @@ mldcatap2:EstimationProcedureShape.identifier rdfs:seeAlso "https://semiceu.gith
   sh:maxCount 1;
   sh:minCount 1 .
 
-mldcatap2:EstimationProcedureShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EstimationProcedure.description";
+mldcatap2:EstimationProcedureShape.description rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EstimationProcedure.description>;
   sh:name "description"@en;
   sh:path dcterms:description;
   sh:nodeKind sh:Literal;
@@ -897,74 +898,74 @@ mldcatap2:EvaluationShape a sh:NodeShape;
     mldcatap2:EvaluationShape.title,
     mldcatap2:EvaluationShape.value .
 
-mldcatap2:EvaluationShape.arrayData rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.arraydata";
+mldcatap2:EvaluationShape.arrayData rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.arraydata>;
   sh:name "array data"@en;
   sh:path it6:arrayData;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:EvaluationShape.fold rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.fold";
+mldcatap2:EvaluationShape.fold rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.fold>;
   sh:name "fold"@en;
   sh:path it6:fold;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:EvaluationShape.hasFlow rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.hasflow";
+mldcatap2:EvaluationShape.hasFlow rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.hasflow>;
   sh:name "has flow"@en;
   sh:path it6:hasFlow;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class it6:Flow .
 
-mldcatap2:EvaluationShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.identifier";
+mldcatap2:EvaluationShape.identifier rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.identifier>;
   sh:name "identifier"@en;
   sh:description "An unambiguous identifier for the resource."@en;
   sh:path dcterms:identifier;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:EvaluationShape.intervalEnd rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.intervalend";
+mldcatap2:EvaluationShape.intervalEnd rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.intervalend>;
   sh:name "interval end"@en;
   sh:path it6:intervalEnd;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:EvaluationShape.intervalStart rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.intervalstart";
+mldcatap2:EvaluationShape.intervalStart rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.intervalstart>;
   sh:name "interval start"@en;
   sh:path it6:intervalStart;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:EvaluationShape.label rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.label";
+mldcatap2:EvaluationShape.label rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.label>;
   sh:name "label"@en;
   sh:path rdfs:label;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:EvaluationShape.repeat rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.repeat";
+mldcatap2:EvaluationShape.repeat rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.repeat>;
   sh:name "repeat"@en;
   sh:path it6:repeat;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:EvaluationShape.sample rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.sample";
+mldcatap2:EvaluationShape.sample rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.sample>;
   sh:name "sample"@en;
   sh:path it6:sample;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:EvaluationShape.sampleSize rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.samplesize";
+mldcatap2:EvaluationShape.sampleSize rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.samplesize>;
   sh:name "sample size"@en;
   sh:path it6:sampleSize;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:EvaluationShape.stdev rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.stdev";
+mldcatap2:EvaluationShape.stdev rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.stdev>;
   sh:name "stdev"@en;
   sh:path it6:stdev;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:EvaluationShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.title";
+mldcatap2:EvaluationShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.title>;
   sh:name "title"@en;
   sh:description "The name assigned to the resource."@en;
   sh:path dcterms:title;
@@ -972,7 +973,7 @@ mldcatap2:EvaluationShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-A
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:EvaluationShape.value rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.value";
+mldcatap2:EvaluationShape.value rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Evaluation.value>;
   sh:name "value"@en;
   sh:path it6:value;
   sh:nodeKind sh:Literal;
@@ -989,19 +990,19 @@ mldcatap2:EvaluationMeasureShape a sh:NodeShape;
     mldcatap2:EvaluationMeasureShape.valueGood;
   sh:targetClass it6:EvaluationMeasure .
 
-mldcatap2:EvaluationMeasureShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EvaluationMeasure.description";
+mldcatap2:EvaluationMeasureShape.description rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EvaluationMeasure.description>;
   sh:name "description"@en;
   sh:path dcterms:description;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:EvaluationMeasureShape.implementation rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EvaluationMeasure.implementation";
+mldcatap2:EvaluationMeasureShape.implementation rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EvaluationMeasure.implementation>;
   sh:name "implementation"@en;
   sh:path it6:implementation;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:EvaluationMeasureShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EvaluationMeasure.title";
+mldcatap2:EvaluationMeasureShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EvaluationMeasure.title>;
   sh:name "title"@en;
   sh:description "The name assigned to the resource."@en;
   sh:path dcterms:title;
@@ -1009,20 +1010,20 @@ mldcatap2:EvaluationMeasureShape.title rdfs:seeAlso "https://semiceu.github.io/M
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:EvaluationMeasureShape.value rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EvaluationMeasure.value";
+mldcatap2:EvaluationMeasureShape.value rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EvaluationMeasure.value>;
   sh:name "value"@en;
   sh:path it6:value;
   sh:nodeKind sh:Literal;
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:EvaluationMeasureShape.valueBad rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EvaluationMeasure.valuebad";
+mldcatap2:EvaluationMeasureShape.valueBad rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EvaluationMeasure.valuebad>;
   sh:name "value bad"@en;
   sh:path it6:valueBad;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:EvaluationMeasureShape.valueGood rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EvaluationMeasure.valuegood";
+mldcatap2:EvaluationMeasureShape.valueGood rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#EvaluationMeasure.valuegood>;
   sh:name "value good"@en;
   sh:path it6:valueGood;
   sh:nodeKind sh:Literal;
@@ -1036,14 +1037,14 @@ mldcatap2:FeatureShape a sh:NodeShape;
     mldcatap2:FeatureShape.type;
   sh:targetClass it6:Feature .
 
-mldcatap2:FeatureShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Feature.description";
+mldcatap2:FeatureShape.description rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Feature.description>;
   sh:name "description"@en;
   sh:description "An explanation of the attribute."@en;
   sh:path dcterms:description;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:FeatureShape.type rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Feature.type";
+mldcatap2:FeatureShape.type rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Feature.type>;
   sh:name "type"@en;
   sh:description "A classification of the resource."@en;
   sh:path dcterms:type;
@@ -1052,7 +1053,7 @@ mldcatap2:FeatureShape.type rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/re
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:FeatureShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Feature.title";
+mldcatap2:FeatureShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Feature.title>;
   sh:name "title"@en;
   sh:description "The name assigned to the resource."@en;
   sh:path dcterms:title;
@@ -1078,44 +1079,44 @@ mldcatap2:FlowShape a sh:NodeShape;
     mldcatap2:FlowShape.version;
   sh:targetClass it6:Flow .
 
-mldcatap2:FlowShape.className rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.classname";
+mldcatap2:FlowShape.className rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.classname>;
   sh:name "class name"@en;
   sh:path it6:className;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:FlowShape.customName rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.customname";
+mldcatap2:FlowShape.customName rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.customname>;
   sh:name "custom name"@en;
   sh:path it6:customName;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:FlowShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.description";
+mldcatap2:FlowShape.description rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.description>;
   sh:name "description"@en;
   sh:path dcterms:description;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:FlowShape.externalVersion rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.externalversion";
+mldcatap2:FlowShape.externalVersion rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.externalversion>;
   sh:name "external version"@en;
   sh:path it6:externalVersion;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:FlowShape.hasDependency rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.hasdependency";
+mldcatap2:FlowShape.hasDependency rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.hasdependency>;
   sh:name "has dependency"@en;
   sh:description "The libraries that a flow depends on."@en;
   sh:path it6:hasDependency;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class it6:Library .
 
-mldcatap2:FlowShape.hasFlowParameter rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.hasflowparameter";
+mldcatap2:FlowShape.hasFlowParameter rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.hasflowparameter>;
   sh:name "has flow parameter"@en;
   sh:path it6:hasFlowParameter;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class it6:FlowParameter .
 
-mldcatap2:FlowShape.hasUploader rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.hasuploader";
+mldcatap2:FlowShape.hasUploader rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.hasuploader>;
   sh:name "has uploader"@en;
   sh:description "An entity responsible for uploading the resource."@en;
   sh:path it6:hasUploader;
@@ -1123,19 +1124,19 @@ mldcatap2:FlowShape.hasUploader rdfs:seeAlso "https://semiceu.github.io/MLDCAT-A
   sh:class foaf:Agent;
   sh:maxCount 1 .
 
-mldcatap2:FlowShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.identifier";
+mldcatap2:FlowShape.identifier rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.identifier>;
   sh:name "identifier"@en;
   sh:description "An unambiguous identifier for the resource."@en;
   sh:path dcterms:identifier;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:FlowShape.keyword rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.keyword";
+mldcatap2:FlowShape.keyword rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.keyword>;
   sh:name "keyword"@en;
   sh:path dcat:keyword;
   sh:nodeKind sh:Literal .
 
-mldcatap2:FlowShape.status rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.status";
+mldcatap2:FlowShape.status rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.status>;
   sh:name "status"@en;
   sh:path adms:status;
   #sh:nodeKind sh:BlankNodeOrIRI;
@@ -1143,21 +1144,21 @@ mldcatap2:FlowShape.status rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/rel
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:FlowShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.title";
+mldcatap2:FlowShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.title>;
   sh:name "title"@en;
   sh:description "The name assigned to the resource."@en;
   sh:path dcterms:title;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:FlowShape.uploaded rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.uploaded";
+mldcatap2:FlowShape.uploaded rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.uploaded>;
   sh:name "uploaded"@en;
   sh:path it6:uploaded;
   sh:nodeKind sh:Literal;
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:FlowShape.version rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.version";
+mldcatap2:FlowShape.version rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.version>;
   sh:name "version"@en;
   sh:path it6:version;
   sh:nodeKind sh:Literal;
@@ -1173,26 +1174,26 @@ mldcatap2:FlowParameterShape a sh:NodeShape;
     mldcatap2:FlowParameterShape.type;
   sh:targetClass it6:FlowParameter .
 
-mldcatap2:FlowParameterShape.defaultValue rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#FlowParameter.defaultvalue";
+mldcatap2:FlowParameterShape.defaultValue rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#FlowParameter.defaultvalue>;
   sh:name "default value"@en;
   sh:path it6:defaultValue;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:FlowParameterShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#FlowParameter.description";
+mldcatap2:FlowParameterShape.description rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#FlowParameter.description>;
   sh:name "description"@en;
   sh:path dcterms:description;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
   
-mldcatap2:FlowParameterShape.recommendedRange rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#FlowParameter.recommendedrange";
+mldcatap2:FlowParameterShape.recommendedRange rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#FlowParameter.recommendedrange>;
   sh:name "recommended range"@en;
   sh:path it6:recommendedRange;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:FlowParameterShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#FlowParameter.title";
+mldcatap2:FlowParameterShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#FlowParameter.title>;
   sh:name "title"@en;
   sh:description "The name assigned to the resource."@en;
   sh:path dcterms:title;
@@ -1200,7 +1201,7 @@ mldcatap2:FlowParameterShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCA
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:FlowParameterShape.type rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#FlowParameter.type";
+mldcatap2:FlowParameterShape.type rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#FlowParameter.type>;
   sh:name "type"@en;
   sh:description "A classification of the resource."@en;
   sh:path dcterms:type;
@@ -1229,7 +1230,7 @@ mldcatap2:LibraryShape a sh:NodeShape;
     mldcatap2:LibraryShape.version;
   sh:targetClass it6:Library .
 
-mldcatap2:LibraryShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Library.title";
+mldcatap2:LibraryShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Library.title>;
   sh:name "title"@en;
   sh:description "The name assigned to the resource."@en;
   sh:path dcterms:title;
@@ -1237,7 +1238,7 @@ mldcatap2:LibraryShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/r
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:LibraryShape.version rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Library.version";
+mldcatap2:LibraryShape.version rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Library.version>;
   sh:name "version"@en;
   sh:path it6:version;
   sh:nodeKind sh:Literal;
@@ -1295,14 +1296,14 @@ mldcatap2:MachineLearningModelShape a sh:NodeShape;
     mldcatap2:MachineLearningModelShape.validatedOn,
     mldcatap2:MachineLearningModelShape.version .
 
-mldcatap2:MachineLearningModelShape.bias rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.bias";
+mldcatap2:MachineLearningModelShape.bias rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.bias>;
   sh:name "bias"@en;
   sh:description "A description of the possible biases affecting the overall output of the model."@en;
   sh:path it6:bias;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:MachineLearningModelShape.created rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.created";
+mldcatap2:MachineLearningModelShape.created rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.created>;
   sh:name "created"@en;
   sh:description "Date of creation of the resource."@en;
   sh:path dcterms:created;
@@ -1310,35 +1311,35 @@ mldcatap2:MachineLearningModelShape.created rdfs:seeAlso "https://semiceu.github
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:MachineLearningModelShape.creator rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.creator";
+mldcatap2:MachineLearningModelShape.creator rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.creator>;
   sh:name "creator"@en;
   sh:description "An entity responsible for making the resource."@en;
   sh:path dcterms:creator;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class foaf:Agent .
 
-mldcatap2:MachineLearningModelShape.contributor rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.contributor";
+mldcatap2:MachineLearningModelShape.contributor rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.contributor>;
   sh:name "contributor"@en;
   sh:description "An entity responsible for making contributions to the resource."@en;
   sh:path dcterms:contributor;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class foaf:Agent .
 
-mldcatap2:MachineLearningModelShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.description";
+mldcatap2:MachineLearningModelShape.description rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.description>;
   sh:name "description"@en;
   sh:description "An account of the resource."@en;
   sh:path dcterms:description;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:MachineLearningModelShape.evaluationResults rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.evaluationresults";
+mldcatap2:MachineLearningModelShape.evaluationResults rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.evaluationresults>;
   sh:name "evaluation results"@en;
   sh:description "A description of the evaluation against the validation dataset."@en;
   sh:path it6:evaluationResults;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:MachineLearningModelShape.fineTunedFrom rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.finetunedfrom";
+mldcatap2:MachineLearningModelShape.fineTunedFrom rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.finetunedfrom>;
   sh:name "fine tuned from"@en;
   sh:description "The model from on which this model has been fine tuned."@en;
   sh:path it6:fineTunedFrom;
@@ -1346,14 +1347,14 @@ mldcatap2:MachineLearningModelShape.fineTunedFrom rdfs:seeAlso "https://semiceu.
   sh:class it6:MachineLearningModel;
   sh:maxCount 1 .
 
-mldcatap2:MachineLearningModelShape.hasBibliographicReference rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasbibliographicreference";
+mldcatap2:MachineLearningModelShape.hasBibliographicReference rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasbibliographicreference>;
   sh:name "has bibliographic reference"@en;
   sh:description "The reference to a paper."@en;
   sh:path it6:hasBibliographicReference;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class biro:BibliographicReference .
 
-mldcatap2:MachineLearningModelShape.hasEngagement rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasengagement";
+mldcatap2:MachineLearningModelShape.hasEngagement rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasengagement>;
   sh:name "has engagement"@en;
   sh:description "Statistics resulting of user engagement."@en;
   sh:path it6:hasEngagement;
@@ -1361,7 +1362,7 @@ mldcatap2:MachineLearningModelShape.hasEngagement rdfs:seeAlso "https://semiceu.
   sh:class it6:Engagement;
   sh:maxCount 1 .
 
-mldcatap2:MachineLearningModelShape.hasOutputFilePrediction rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasoutputfileprediction";
+mldcatap2:MachineLearningModelShape.hasOutputFilePrediction rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasoutputfileprediction>;
   sh:name "has output file prediction"@en;
   sh:description "The file in which the model is expressed."@en;
   sh:path it6:hasOutputFilePrediction;
@@ -1369,42 +1370,42 @@ mldcatap2:MachineLearningModelShape.hasOutputFilePrediction rdfs:seeAlso "https:
   sh:class it6:OutputFilePrediction;
   sh:minCount 1 .
 
-mldcatap2:MachineLearningModelShape.hasPrediction rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasprediction";
+mldcatap2:MachineLearningModelShape.hasPrediction rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasprediction>;
   sh:name "has prediction"@en;
   sh:description "The predicted dataset generated as output of a machine learning model."@en;
   sh:path it6:hasPrediction;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dcat:Dataset .
 
-mldcatap2:MachineLearningModelShape.hasProvider rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasprovider";
+mldcatap2:MachineLearningModelShape.hasProvider rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasprovider>;
   sh:name "has provider"@en;
   sh:description "A natural or legal person, public authority, agency or other body that develops a Machine Learning Model or places it on the market or puts the it into service under its own name or trademark, whether for payment or free of charge."@en;
   sh:path it6:hasProvider;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class foaf:Agent .
 
-mldcatap2:MachineLearningModelShape.hasRepository rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasrepository";
+mldcatap2:MachineLearningModelShape.hasRepository rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasrepository>;
   sh:name "has repository"@en;
   sh:description "The repository associated."@en;
   sh:path it6:hasRepository;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class lpwc:repository .
 
-mldcatap2:MachineLearningModelShape.hasRisk rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasrisk";
+mldcatap2:MachineLearningModelShape.hasRisk rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasrisk>;
   sh:name "has risk"@en;
   sh:description "It refers to a possible risk that can occur."@en;
   sh:path it6:hasRisk;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class it6:Risk .
 
-mldcatap2:MachineLearningModelShape.hasVariation rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasvariation";
+mldcatap2:MachineLearningModelShape.hasVariation rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasvariation>;
   sh:name "has variation"@en;
   sh:description "The model that is variant of this model."@en;
   sh:path it6:hasVariation;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class it6:MachineLearningModel .
 
-mldcatap2:MachineLearningModelShape.hasUploader rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasuploader";
+mldcatap2:MachineLearningModelShape.hasUploader rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasuploader>;
   sh:name "has uploader"@en;
   sh:description "An entity responsible for uploading the resource."@en;
   sh:path it6:hasUploader;
@@ -1412,55 +1413,55 @@ mldcatap2:MachineLearningModelShape.hasUploader rdfs:seeAlso "https://semiceu.gi
   sh:class foaf:Agent;
   sh:maxCount 1 .
 
-mldcatap2:MachineLearningModelShape.howToUse rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.howtouse";
+mldcatap2:MachineLearningModelShape.howToUse rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.howtouse>;
   sh:name "how to use"@en;
   sh:description "An explanation of how to use or deploy the model."@en;
   sh:path it6:howToUse;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:MachineLearningModelShape.intendedUse rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.intendeduse";
+mldcatap2:MachineLearningModelShape.intendedUse rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.intendeduse>;
   sh:name "intended use"@en;
   sh:description "The objective or purpose of the model."@en;
   sh:path it6:intendedUse;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:MachineLearningModelShape.keyword rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.keyword";
+mldcatap2:MachineLearningModelShape.keyword rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.keyword>;
   sh:name "keyword"@en;
   sh:description "A keyword or tag describing the resource."@en;
   sh:path dcat:keyword;
   sh:nodeKind sh:Literal .
 
-mldcatap2:MachineLearningModelShape.language rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.language";
+mldcatap2:MachineLearningModelShape.language rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.language>;
   sh:name "language"@en;
   sh:description "A language of the resource."@en;
   sh:path dcterms:language;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dcterms:LinguisticSystem .
 
-mldcatap2:MachineLearningModelShape.license rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.license";
+mldcatap2:MachineLearningModelShape.license rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.license>;
   sh:name "license"@en;
   sh:description "The license under which the resource is made available."@en;
   sh:path dcterms:license;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dcterms:LicenseDocument .
 
-mldcatap2:MachineLearningModelShape.limitations rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.limitations";
+mldcatap2:MachineLearningModelShape.limitations rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.limitations>;
   sh:name "limitations"@en;
   sh:description "The limited capabilities of the model."@en;
   sh:path it6:limitations;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:MachineLearningModelShape.logo rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.logo";
+mldcatap2:MachineLearningModelShape.logo rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.logo>;
   sh:name "logo"@en;
   sh:description "An image or logo of the model."@en;
   sh:path cv:logo;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class cv:ImageObject .
 
-mldcatap2:MachineLearningModelShape.name rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.name";
+mldcatap2:MachineLearningModelShape.name rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.name>;
   sh:name "name"@en;
   sh:description "The name assigned to the resource."@en;
   sh:path dcterms:title;
@@ -1468,7 +1469,7 @@ mldcatap2:MachineLearningModelShape.name rdfs:seeAlso "https://semiceu.github.io
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:MachineLearningModelShape.runnedOn rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.runnedon";
+mldcatap2:MachineLearningModelShape.runnedOn rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.runnedon>;
   # FIXME: Typo
   sh:name "runned on"@en;
   sh:description "The dataset on which a machine learning mode is executed."@en;
@@ -1477,14 +1478,14 @@ mldcatap2:MachineLearningModelShape.runnedOn rdfs:seeAlso "https://semiceu.githu
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dcat:Dataset .
 
-mldcatap2:MachineLearningModelShape.testedOn rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.testedon";
+mldcatap2:MachineLearningModelShape.testedOn rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.testedon>;
   sh:name "tested on"@en;
   sh:description "The testing dataset used to evaluate the machine learning model."@en;
   sh:path it6:testedOn;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dcat:Dataset .
 
-mldcatap2:MachineLearningModelShape.trainedOn rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.trainedon";
+mldcatap2:MachineLearningModelShape.trainedOn rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.trainedon>;
   sh:name "trained on"@en;
   sh:description "The training dataset used to train the machine learning model."@en;
   sh:path it6:trainedOn;
@@ -1492,28 +1493,28 @@ mldcatap2:MachineLearningModelShape.trainedOn rdfs:seeAlso "https://semiceu.gith
   sh:class dcat:Dataset ;
   sh:minCount 1 .
 
-mldcatap2:MachineLearningModelShape.trainingProcess rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.trainingprocess";
+mldcatap2:MachineLearningModelShape.trainingProcess rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.trainingprocess>;
   sh:name "training process"@en;
   sh:description "A description of the training process."@en;
   sh:path it6:trainingProcess;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:MachineLearningModelShape.type rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.type";
+mldcatap2:MachineLearningModelShape.type rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.type>;
   sh:name "type"@en;
   sh:description "The nature or genre of the resource."@en;
   sh:path dcterms:type;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class skos:Concept .
 
-mldcatap2:MachineLearningModelShape.validatedOn rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.validatedon";
+mldcatap2:MachineLearningModelShape.validatedOn rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.validatedon>;
   sh:name "validated on"@en;
   sh:description "The validation dataset used to fine-tune the machine learning model."@en;
   sh:path it6:validatedOn;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dcat:Dataset .
 
-mldcatap2:MachineLearningModelShape.version rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.version";
+mldcatap2:MachineLearningModelShape.version rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.version>;
   sh:name "version"@en;
   sh:description "The current version of the model."@en;
   sh:path it6:version;
@@ -1544,7 +1545,7 @@ mldcatap2:OutputFileDescriptionShape a sh:NodeShape;
     mldcatap2:OutputFileDescriptionShape.url;
   sh:targetClass it6:OutputFileDescription .
 
-mldcatap2:OutputFileDescriptionShape.id rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFileDescription.id";
+mldcatap2:OutputFileDescriptionShape.id rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFileDescription.id>;
   sh:name "id"@en;
   sh:description "An unambiguous identifier for the resource."@en;
   sh:path dcterms:identifier;
@@ -1552,7 +1553,7 @@ mldcatap2:OutputFileDescriptionShape.id rdfs:seeAlso "https://semiceu.github.io/
   sh:minCount 1;
   sh:maxCount 1 .
   
-mldcatap2:OutputFileDescriptionShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFileDescription.title";
+mldcatap2:OutputFileDescriptionShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFileDescription.title>;
   sh:name "title"@en;
   sh:description "The name assigned to the resource."@en;
   sh:path dcterms:title;
@@ -1560,7 +1561,7 @@ mldcatap2:OutputFileDescriptionShape.title rdfs:seeAlso "https://semiceu.github.
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:OutputFileDescriptionShape.url rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFileDescription.url";
+mldcatap2:OutputFileDescriptionShape.url rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFileDescription.url>;
   sh:name "url"@en;
   sh:path it6:url;
   sh:nodeKind sh:Literal;
@@ -1577,14 +1578,14 @@ mldcatap2:OutputFilePredictionShape a sh:NodeShape;
     mldcatap2:OutputFilePredictionShape.url;
   sh:targetClass it6:OutputFilePrediction .
 
-mldcatap2:OutputFilePredictionShape.checksum rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFilePrediction.checksum";
+mldcatap2:OutputFilePredictionShape.checksum rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFilePrediction.checksum>;
   sh:name "checksum"@en;
   sh:description "This property provides a mechanism that can be used to verify that the contents of a distribution have not changed."@en;
   sh:path spdx:checksum;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class spdx:Checksum .
 
-mldcatap2:OutputFilePredictionShape.format rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFilePrediction.format";
+mldcatap2:OutputFilePredictionShape.format rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFilePrediction.format>;
   sh:name "format"@en;
   sh:description "The file format, physical medium, or dimensions of the resource."@en;
   sh:path dcterms:format;
@@ -1593,7 +1594,7 @@ mldcatap2:OutputFilePredictionShape.format rdfs:seeAlso "https://semiceu.github.
   sh:maxCount 1;
   sh:minCount 1 .
 
-mldcatap2:OutputFilePredictionShape.id rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFilePrediction.id";
+mldcatap2:OutputFilePredictionShape.id rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFilePrediction.id>;
   sh:name "id"@en;
   sh:description "An unambiguous identifier for the resource."@en;
   sh:path dcterms:identifier;
@@ -1602,7 +1603,7 @@ mldcatap2:OutputFilePredictionShape.id rdfs:seeAlso "https://semiceu.github.io/M
   sh:maxCount 1 .
 
 
-mldcatap2:OutputFilePredictionShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFilePrediction.title";
+mldcatap2:OutputFilePredictionShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFilePrediction.title>;
   sh:name "title"@en;
   sh:description "The name assigned to the resource."@en;
   sh:path dcterms:title;
@@ -1610,7 +1611,7 @@ mldcatap2:OutputFilePredictionShape.title rdfs:seeAlso "https://semiceu.github.i
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:OutputFilePredictionShape.url rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFilePrediction.url";
+mldcatap2:OutputFilePredictionShape.url rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#OutputFilePrediction.url>;
   sh:name "url"@en;
   sh:description "The url of the file to be downloaded."@en;
   sh:path it6:url;
@@ -1633,21 +1634,21 @@ mldcatap2:PaperShape a sh:NodeShape;
     mldcatap2:PaperShape.title;
   sh:targetClass lpwc:paper .
 
-mldcatap2:PaperShape.abstract rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.abstract";
+mldcatap2:PaperShape.abstract rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.abstract>;
   sh:name "abstract"@en;
   sh:description "A summary of the resource."@en;
   sh:path dcterms:abstract;
   sh:maxCount 1;
   sh:nodeKind sh:Literal .
 
-mldcatap2:PaperShape.creator rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.creator";
+mldcatap2:PaperShape.creator rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.creator>;
   sh:name "creator"@en;
   sh:description "An entity responsible for making the resource."@en;
   sh:path dcterms:creator;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class foaf:Agent .
 
-mldcatap2:PaperShape.date rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.date";
+mldcatap2:PaperShape.date rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.date>;
   sh:name "date"@en;
   sh:description "A point or period of time associated with an event in the lifecycle of the resource."@en;
   sh:path dcterms:date;
@@ -1655,7 +1656,7 @@ mldcatap2:PaperShape.date rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/rele
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:PaperShape.hasDocument rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.hasdocument";
+mldcatap2:PaperShape.hasDocument rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.hasdocument>;
   sh:name "has document"@en;
   sh:description "This property specifies the url or location of the document itself."@en;
   sh:path it6:hasDocument;
@@ -1664,35 +1665,35 @@ mldcatap2:PaperShape.hasDocument rdfs:seeAlso "https://semiceu.github.io/MLDCAT-
   sh:maxCount 1;
   sh:minCount 1 .
 
-mldcatap2:PaperShape.hasModel rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.hasmodel";
+mldcatap2:PaperShape.hasModel rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.hasmodel>;
   sh:name "has model"@en;
   sh:description "The model that is used by a paper or an evaluation."@en;
   sh:path lpwc-p:hasModel;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class it6:MachineLearningModel .
 
-mldcatap2:PaperShape.hasRepository rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.hasrepository";
+mldcatap2:PaperShape.hasRepository rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.hasrepository>;
   sh:name "has repository"@en;
   sh:description "This property specifies a repository."@en;
   sh:path lpwc-p:hasRepository;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class lpwc:repository .
 
-mldcatap2:PaperShape.references rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.references";
+mldcatap2:PaperShape.references rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.references>;
   sh:name "references"@en;
   sh:description "A related resource that is referenced, cited, or otherwise pointed to by the described resource."@en;
   sh:path dcterms:references;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dcat:Dataset .
 
-mldcatap2:PaperShape.subject rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.subject";
+mldcatap2:PaperShape.subject rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.subject>;
   sh:name "subject"@en;
   sh:description "A topic of the resource."@en;
   sh:path dcterms:subject;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:PaperShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.title";
+mldcatap2:PaperShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Paper.title>;
   sh:name "title"@en;
   sh:description "A name given to the resource."@en;
   sh:path dcterms:title;
@@ -1707,7 +1708,7 @@ mldcatap2:ParameterShape a sh:NodeShape;
   sh:property mldcatap2:ParameterShape.title,
     mldcatap2:ParameterShape.value .
 
-mldcatap2:ParameterShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Parameter.title";
+mldcatap2:ParameterShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Parameter.title>;
   sh:name "title"@en;
   sh:description "The name assigned to the resource."@en;
   sh:path dcterms:title;
@@ -1715,7 +1716,7 @@ mldcatap2:ParameterShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:ParameterShape.value rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Parameter.value";
+mldcatap2:ParameterShape.value rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Parameter.value>;
   sh:name "value"@en;
   sh:path it6:value;
   sh:nodeKind sh:Literal;
@@ -1729,7 +1730,7 @@ mldcatap2:ParameterSettingShape a sh:NodeShape;
     mldcatap2:ParameterSettingShape.name,
     mldcatap2:ParameterSettingShape.value .
 
-mldcatap2:ParameterSettingShape.name rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#ParameterSetting.name";
+mldcatap2:ParameterSettingShape.name rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#ParameterSetting.name>;
   sh:name "name"@en;
   sh:description "The name assigned to the resource."@en;
   sh:path dcterms:title;
@@ -1737,13 +1738,13 @@ mldcatap2:ParameterSettingShape.name rdfs:seeAlso "https://semiceu.github.io/MLD
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:ParameterSettingShape.component rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#ParameterSetting.component";
+mldcatap2:ParameterSettingShape.component rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#ParameterSetting.component>;
   sh:name "component"@en;
   sh:path it6:component;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:ParameterSettingShape.value rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#ParameterSetting.value";
+mldcatap2:ParameterSettingShape.value rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#ParameterSetting.value>;
   sh:name "value"@en;
   sh:path it6:value;
   sh:nodeKind sh:Literal;
@@ -1763,7 +1764,7 @@ mldcatap2:PredictionShape a sh:NodeShape;
     mldcatap2:PredictionShape.hasPredictionFeature .
 
 
-mldcatap2:PredictionShape.format rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Prediction.format";
+mldcatap2:PredictionShape.format rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Prediction.format>;
   sh:name "format"@en;
   sh:path dcterms:format;
   #sh:nodeKind sh:BlankNodeOrIRI;
@@ -1771,7 +1772,7 @@ mldcatap2:PredictionShape.format rdfs:seeAlso "https://semiceu.github.io/MLDCAT-
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:PredictionShape.hasPredictionFeature rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Prediction.haspredictionfeature";
+mldcatap2:PredictionShape.hasPredictionFeature rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Prediction.haspredictionfeature>;
   sh:name "has prediction feature"@en;
   sh:path it6:hasPredictionFeature;
   #sh:nodeKind sh:BlankNodeOrIRI;
@@ -1785,7 +1786,7 @@ mldcatap2:PredictionFeatureShape a sh:NodeShape;
   sh:property mldcatap2:PredictionFeatureShape.title,
     mldcatap2:PredictionFeatureShape.type .
 
-mldcatap2:PredictionFeatureShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#PredictionFeature.title";
+mldcatap2:PredictionFeatureShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#PredictionFeature.title>;
   sh:name "title"@en;
   sh:description "The name assigned to the resource."@en;
   sh:path dcterms:title;
@@ -1793,7 +1794,7 @@ mldcatap2:PredictionFeatureShape.title rdfs:seeAlso "https://semiceu.github.io/M
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:PredictionFeatureShape.type rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#PredictionFeature.type";
+mldcatap2:PredictionFeatureShape.type rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#PredictionFeature.type>;
   sh:name "type"@en;
   sh:description "A classification of the resource."@en;
   sh:path dcterms:type;
@@ -1813,14 +1814,14 @@ mldcatap2:QualityMeasurementShape a sh:NodeShape;
     mldcatap2:QualityMeasurementShape.value;
   sh:targetClass dqv:QualityMeasurement .
 
-mldcatap2:QualityMeasurementShape.dataset rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurement.dataset";
+mldcatap2:QualityMeasurementShape.dataset rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurement.dataset>;
   sh:name "dataset"@en;
   sh:description "Indicates the data set of which this observation is a part."@en;
   sh:path qb:dataSet;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dqv:QualityMeasurementDataset .
 
-mldcatap2:QualityMeasurementShape.featureIndex rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurement.featureindex";
+mldcatap2:QualityMeasurementShape.featureIndex rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurement.featureindex>;
   sh:name "feature index"@en;
   sh:description "The feature on which the quality is measure on."@en;
   sh:path it6:featureIndex;
@@ -1828,21 +1829,21 @@ mldcatap2:QualityMeasurementShape.featureIndex rdfs:seeAlso "https://semiceu.git
   sh:class it6:Feature;
   sh:maxCount 1 .
 
-mldcatap2:QualityMeasurementShape.intervalStart rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurement.intervalstart";
+mldcatap2:QualityMeasurementShape.intervalStart rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurement.intervalstart>;
   sh:name "interval start"@en;
   sh:description "The minimum value of the Quality Measure."@en;
   sh:path it6:intervalStart;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:QualityMeasurementShape.intervalEnd rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurement.intervalend";
+mldcatap2:QualityMeasurementShape.intervalEnd rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurement.intervalend>;
   sh:name "interval end"@en;
   sh:description "The maximum value of the Quality Measure."@en;
   sh:path it6:intervalEnd;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:QualityMeasurementShape.type rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurement.type";
+mldcatap2:QualityMeasurementShape.type rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurement.type>;
   sh:name "type"@en;
   sh:description "A classification for a quality."@en;
   sh:path dcterms:type;
@@ -1851,7 +1852,7 @@ mldcatap2:QualityMeasurementShape.type rdfs:seeAlso "https://semiceu.github.io/M
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:QualityMeasurementShape.value rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurement.value";
+mldcatap2:QualityMeasurementShape.value rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurement.value>;
   sh:name "value"@en;
   sh:description "Refers to values computed by metric."@en;
   sh:path dqv:value;
@@ -1866,14 +1867,14 @@ mldcatap2:QualityMeasurementDatasetShape a sh:NodeShape;
     mldcatap2:QualityMeasurementDatasetShape.identifier;
   sh:targetClass dqv:QualityMeasurementDataset .
 
-mldcatap2:QualityMeasurementDatasetShape.evaluationEngineId rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurementDataset.evaluationengineid";
+mldcatap2:QualityMeasurementDatasetShape.evaluationEngineId rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurementDataset.evaluationengineid>;
   sh:name "evaluation engine id"@en;
   sh:description "The engine responsible for extracting the features."@en;
   sh:path it6:evaluationEngine;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
   
-mldcatap2:QualityMeasurementDatasetShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurementDataset.identifier";
+mldcatap2:QualityMeasurementDatasetShape.identifier rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#QualityMeasurementDataset.identifier>;
   sh:name "identifier"@en;
   sh:description "An unambiguous identifier for the resource."@en;
   sh:path dcterms:identifier;
@@ -1887,7 +1888,7 @@ mldcatap2:RepositoryShape a sh:NodeShape;
   sh:property mldcatap2:RepositoryShape.hasFile;
   sh:targetClass lpwc:repository .
 
-mldcatap2:RepositoryShape.hasFile rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Repository.hasfile";
+mldcatap2:RepositoryShape.hasFile rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Repository.hasfile>;
   sh:path it6:hasFile;
   sh:name "has file"@en;
   #sh:nodeKind sh:BlankNodeOrIRI;
@@ -1913,7 +1914,7 @@ mldcatap2:RiskShape a sh:NodeShape;
     mldcatap2:RiskShape.severity,
     mldcatap2:RiskShape.title .
 
-mldcatap2:RiskShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Risk.description";
+mldcatap2:RiskShape.description rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Risk.description>;
   sh:name "description"@en;
   sh:description "An account of the resource."@en;
   sh:path dcterms:description;
@@ -1921,27 +1922,27 @@ mldcatap2:RiskShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-A
   sh:maxCount 1;
   sh:minCount 1 .
 
-mldcatap2:RiskShape.mitigation rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Risk.mitigation";
+mldcatap2:RiskShape.mitigation rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Risk.mitigation>;
   sh:name "mitigation"@en;
   sh:description "The action of reducing the severity of the risk."@en;
   sh:path it6:mitigation;
   sh:nodeKind sh:Literal .
 
-mldcatap2:RiskShape.probability rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Risk.probability";
+mldcatap2:RiskShape.probability rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Risk.probability>;
   sh:name "probability"@en;
   sh:description "The likelihood that a given event will occur."@en;
   sh:path it6:probability;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:RiskShape.severity rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Risk.severity";
+mldcatap2:RiskShape.severity rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Risk.severity>;
   sh:name "severity"@en;
   sh:description "The extent of the damage resulting from an event occurring."@en;
   sh:path it6:severity;
   sh:maxCount 1 ;
   sh:nodeKind sh:Literal .
 
-mldcatap2:RiskShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Risk.title";
+mldcatap2:RiskShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Risk.title>;
   sh:name "title"@en;
   sh:description "A name associated to the risk."@en;
   sh:path dcterms:title;
@@ -1968,13 +1969,13 @@ mldcatap2:RunShape a sh:NodeShape;
     mldcatap2:RunShape.setupString;
   sh:targetClass it6:Run .
 
-mldcatap2:RunShape.errorMessage rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.errormessage";
+mldcatap2:RunShape.errorMessage rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.errormessage>;
   sh:name "error message"@en;
   sh:path it6:errorMessage;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:RunShape.executes rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.executes";
+mldcatap2:RunShape.executes rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.executes>;
 sh:name "executes"@en;
   sh:description "The Algorithm executed by the run."@en;
   sh:path mls:realizes;
@@ -1982,13 +1983,13 @@ sh:name "executes"@en;
   sh:class mls:Algorithm;
   sh:minCount 1 .
 
-mldcatap2:RunShape.hasEvaluation rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hasevaluation";
+mldcatap2:RunShape.hasEvaluation rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hasevaluation>;
   sh:name "has evaluation"@en;
   sh:path it6:hasEvaluation;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class it6:Evaluation .
 
-mldcatap2:RunShape.hasFlow rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hasflow";
+mldcatap2:RunShape.hasFlow rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hasflow>;
   sh:name "has flow"@en;
   sh:path it6:hasFlow;
   #sh:nodeKind sh:BlankNodeOrIRI;
@@ -1996,7 +1997,7 @@ mldcatap2:RunShape.hasFlow rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/rel
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:RunShape.hasOutputFileDescription rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hasoutputfiledescription";
+mldcatap2:RunShape.hasOutputFileDescription rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hasoutputfiledescription>;
   sh:name "has output file description"@en;
   sh:path it6:hasOutputFileDescription;
   #sh:nodeKind sh:BlankNodeOrIRI;
@@ -2004,7 +2005,7 @@ mldcatap2:RunShape.hasOutputFileDescription rdfs:seeAlso "https://semiceu.github
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:RunShape.hasOutputFilePrediction rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hasoutputfileprediction";
+mldcatap2:RunShape.hasOutputFilePrediction rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hasoutputfileprediction>;
   sh:name "has output file prediction"@en;
   sh:path it6:hasOutputFilePrediction;
   #sh:nodeKind sh:BlankNodeOrIRI;
@@ -2012,21 +2013,21 @@ mldcatap2:RunShape.hasOutputFilePrediction rdfs:seeAlso "https://semiceu.github.
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:RunShape.hasparametersetting rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hasparametersetting";
+mldcatap2:RunShape.hasparametersetting rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hasparametersetting>;
   sh:name "has parameter setting"@en;
   sh:path it6:hasParameterSetting;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class it6:ParameterSetting;
   sh:maxCount 1 .
 
-mldcatap2:RunShape.hasTask rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hastask";
+mldcatap2:RunShape.hasTask rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hastask>;
   sh:name "has task"@en;
   sh:path it6:hasTask;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class it6:Task;
   sh:maxCount 1 .
 
-mldcatap2:RunShape.hasUploader rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hasuploader";
+mldcatap2:RunShape.hasUploader rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.hasuploader>;
   sh:name "has uploader"@en;
   sh:description "An entity responsible for uploading the resource."@en;
   sh:path it6:hasUploader;
@@ -2034,31 +2035,31 @@ mldcatap2:RunShape.hasUploader rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP
   sh:class foaf:Agent;
   sh:maxCount 1 .
 
-mldcatap2:RunShape.identifier rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.identifier";
+mldcatap2:RunShape.identifier rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.identifier>;
   sh:name "identifier"@en;
   sh:description "An unambiguous identifier for the resource."@en;
   sh:path dcterms:identifier;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:RunShape.keyword rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.keyword";
+mldcatap2:RunShape.keyword rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.keyword>;
   sh:name "keyword"@en;
   sh:path dcat:keyword;
   sh:nodeKind sh:Literal .
 
-mldcatap2:RunShape.runDetails rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.rundetails";
+mldcatap2:RunShape.runDetails rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.rundetails>;
   sh:name "run details"@en;
   sh:path it6:runDetails;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:RunShape.setupId rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.setupId";
+mldcatap2:RunShape.setupId rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.setupId>;
   sh:name "setup Id"@en;
   sh:path it6:setupId;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:RunShape.setupString rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.setupstring";
+mldcatap2:RunShape.setupString rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Run.setupstring>;
   sh:name "setup string"@en;
   sh:path it6:setupString;
   sh:nodeKind sh:Literal;
@@ -2070,7 +2071,7 @@ mldcatap2:RunCollectionShape a sh:NodeShape;
   sh:property mldcatap2:RunCollectionShape.hasRun;
   sh:targetClass it6:RunCollection .
 
-mldcatap2:RunCollectionShape.hasRun rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#RunCollection.hasrun";
+mldcatap2:RunCollectionShape.hasRun rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#RunCollection.hasrun>;
   sh:name "has run"@en;
   sh:path it6:hasRun;
   #sh:nodeKind sh:BlankNodeOrIRI;
@@ -2086,13 +2087,13 @@ mldcatap2:SplitShape a sh:NodeShape;
     mldcatap2:SplitShape.title;
   sh:targetClass it6:Split .
 
-mldcatap2:SplitShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Split.description";
+mldcatap2:SplitShape.description rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Split.description>;
   sh:name "description"@en;
   sh:path dcterms:description;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:SplitShape.id rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Split.id";
+mldcatap2:SplitShape.id rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Split.id>;
   sh:name "id"@en;
   sh:description "An unambiguous identifier for the resource."@en;
   sh:path dcterms:identifier;
@@ -2100,14 +2101,14 @@ mldcatap2:SplitShape.id rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releas
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:SplitShape.isAppliedTo rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Split.isappliedto";
+mldcatap2:SplitShape.isAppliedTo rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Split.isappliedto>;
   sh:name "is applied to"@en;
   sh:path it6:isAppliedTo;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class dcat:Distribution;
   sh:minCount 1 .
 
-mldcatap2:SplitShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Split.title";
+mldcatap2:SplitShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Split.title>;
   sh:name "title"@en;
   sh:description "The name assigned to the resource."@en;
   sh:path dcterms:title;
@@ -2130,28 +2131,28 @@ mldcatap2:TaskShape a sh:NodeShape;
     mldcatap2:TaskShape.title;
   sh:targetClass it6:Task .
 
-mldcatap2:TaskShape.hasCostMatrix rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.hascostmatrix";
+mldcatap2:TaskShape.hasCostMatrix rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.hascostmatrix>;
   sh:name "has cost matrix"@en;
   sh:path it6:hasCostMatrix;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class it6:CostMatrix;
   sh:maxCount 1 .
 
-mldcatap2:TaskShape.hasEstimationProcedure rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.hasestimationprocedure";
+mldcatap2:TaskShape.hasEstimationProcedure rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.hasestimationprocedure>;
   sh:name "has estimation procedure"@en;
   sh:path it6:hasEstimationProcedure;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class it6:EstimationProcedure;
   sh:minCount 1 .
 
-mldcatap2:TaskShape.hasEvaluationMeasure rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.hasevaluationmeasure";
+mldcatap2:TaskShape.hasEvaluationMeasure rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.hasevaluationmeasure>;
   sh:name "has evaluation measure"@en;
   sh:path it6:hasEvaluationMeasure;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class it6:EvaluationMeasure;
   sh:minCount 1 .
 
-mldcatap2:TaskShape.hasOutput rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.hasoutput";
+mldcatap2:TaskShape.hasOutput rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.hasoutput>;
   sh:name "has output"@en;
   sh:path it6:hasOutput;
   #sh:nodeKind sh:BlankNodeOrIRI
@@ -2159,7 +2160,7 @@ mldcatap2:TaskShape.hasOutput rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:TaskShape.hasTaskType rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.hastasktype";
+mldcatap2:TaskShape.hasTaskType rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.hastasktype>;
   sh:name "has task type"@en;
   sh:path it6:hasTaskType;
   #sh:nodeKind sh:BlankNodeOrIRI;
@@ -2167,34 +2168,34 @@ mldcatap2:TaskShape.hasTaskType rdfs:seeAlso "https://semiceu.github.io/MLDCAT-A
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:TaskShape.id rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.id";
+mldcatap2:TaskShape.id rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.id>;
   sh:name "id"@en;
   sh:description "An unambiguous identifier for the resource."@en;
   sh:path dcterms:identifier;
   sh:nodeKind sh:Literal;
   sh:maxCount 1 .
 
-mldcatap2:TaskShape.keyword rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.keyword";
+mldcatap2:TaskShape.keyword rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.keyword>;
   sh:name "keyword"@en;
   sh:description "A keyword or tag describing the resource."@en;
   sh:path dcat:keyword;
   sh:nodeKind sh:Literal .
 
-mldcatap2:TaskShape.sourceData rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.sourcedata";
+mldcatap2:TaskShape.sourceData rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.sourcedata>;
   sh:name "source data"@en;
   sh:path it6:sourceData;
   #sh:nodeKind sh:BlankNodeOrIRI
   sh:class dcat:Dataset;
   sh:minCount 1 .
 
-mldcatap2:TaskShape.targetFeature rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.targetfeature";
+mldcatap2:TaskShape.targetFeature rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.targetfeature>;
   sh:name "target feature"@en;
   sh:path it6:targetFeature;
   #sh:nodeKind sh:BlankNodeOrIRI;
   sh:class it6:Feature;
   sh:minCount 1 .
 
-mldcatap2:TaskShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.title";
+mldcatap2:TaskShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Task.title>;
   sh:name "title"@en;
   sh:description "The name assigned to the resource."@en;
   sh:path dcterms:title;
@@ -2208,7 +2209,7 @@ mldcatap2:TaskCollectionShape a sh:NodeShape;
   sh:property mldcatap2:TaskCollectionShape.hasTask;
   sh:targetClass it6:TaskCollection .
 
-mldcatap2:TaskCollectionShape.hasTask rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#TaskCollection.hastask";
+mldcatap2:TaskCollectionShape.hasTask rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#TaskCollection.hastask>;
   sh:name "has task"@en;
   sh:path it6:hasTask;
   #sh:nodeKind sh:BlankNodeOrIRI;
@@ -2223,14 +2224,14 @@ mldcatap2:TaskTypeShape a sh:NodeShape;
     mldcatap2:TaskTypeShape.title ;
   sh:targetClass it6:TaskType .
 
-mldcatap2:TaskTypeShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#TaskType.description";
+mldcatap2:TaskTypeShape.description rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#TaskType.description>;
   sh:name "description"@en;
   sh:path skos:definition;
   sh:nodeKind sh:Literal;
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:TaskTypeShape.id rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#TaskType.id";
+mldcatap2:TaskTypeShape.id rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#TaskType.id>;
   sh:name "id"@en;
   sh:description "An unambiguous identifier for the resource."@en;
   sh:path dcterms:identifier;
@@ -2238,7 +2239,7 @@ mldcatap2:TaskTypeShape.id rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/rel
   sh:minCount 1;
   sh:maxCount 1 .
 
-mldcatap2:TaskTypeShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#TaskType.title";
+mldcatap2:TaskTypeShape.title rdfs:seeAlso <https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#TaskType.title>;
   sh:name "title"@en;
   sh:description "The name assigned to the resource."@en;
   sh:path dcterms:title;
