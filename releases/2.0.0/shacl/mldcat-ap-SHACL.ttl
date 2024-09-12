@@ -254,7 +254,8 @@ mldcatap2:CatalogShape.record rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/
 
 mldcatap2:CatalogShape.releasedate rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Catalogue.releasedate";
   shacl:name "release date"@en;
-  shacl:description """	The date of formal issuance (e.g., publication) of the Catalogue."""@en;
+  # Fixed description literal
+  shacl:description "The date of formal issuance (e.g., publication) of the Catalogue."@en;
   shacl:path dcterm:issued;
   shacl:nodeKind shacl:Literal;
   shacl:maxCount 1 .
@@ -528,8 +529,8 @@ mldcatap2:DatasetShape.releasedate rdfs:seeAlso "https://semiceu.github.io/MLDCA
   shacl:name "release date"@en;
   shacl:description "The date of formal issuance (e.g., publication) of the Dataset."@en;
   shacl:path dcterm:issued;
-  shacl:maxCount 1;
-  shacl:nodeKind shacl:Literal .
+  shacl:nodeKind shacl:Literal;
+  shacl:maxCount 1 .
 
 mldcatap2:DatasetShape.status rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Dataset.status";
   shacl:name "status"@en;
@@ -611,23 +612,24 @@ mldcatap2:DataServiceShape.servesdataset rdfs:seeAlso "https://semiceu.github.io
   shacl:path dcat:servesDataset;
   shacl:name "serves dataset"@en;
   shacl:description "A collection of data that this data service can distribute."@en;
-  shacl:nodeKind shacl:BlankNodeOrIRI;
+  shacl:path dcat:servesDataset;
+  #shacl:nodeKind shacl:BlankNodeOrIRI;
   shacl:class dcat:Dataset .
 
 mldcatap2:DataServiceShape.endpointURL rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#DataService.endpointURL";
-  shacl:path dcat:endpointURL;
   shacl:name "endpoint URL"@en;
-  shacl:class dcat:Resource;
   shacl:description "The root location or primary endpoint of the service (an IRI)."@en;
-  shacl:minCount 1;
-  shacl:nodeKind shacl:BlankNodeOrIRI .
+  shacl:path dcat:endpointURL;
+  #shacl:nodeKind shacl:BlankNodeOrIRI;
+  shacl:class dcat:Resource;
+  shacl:minCount 1 .
 
 mldcatap2:DataServiceShape.title rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#DataService.title";
-  shacl:path dcterm:title;
-  shacl:minCount 1;
   shacl:name "title"@en;
   shacl:description "A name given to the Data Service."@en;
-  shacl:nodeKind shacl:Literal .
+  shacl:path dcterm:title;
+  shacl:nodeKind shacl:Literal;
+  shacl:minCount 1 .
 
 
 mldcatap2:DistributionShape a shacl:NodeShape;
@@ -658,6 +660,7 @@ mldcatap2:DistributionShape.accessservice rdfs:seeAlso "https://semiceu.github.i
   shacl:path dcat:accessService;
   shacl:name "access service"@en;
   shacl:description "A data service that gives access to the distribution of the dataset."@en;
+  shacl:path dcat:accessService;
   #shacl:nodeKind shacl:BlankNodeOrIRI;
   shacl:class dcat:DataService .
 
@@ -769,8 +772,8 @@ mldcatap2:DistributionShape.processingerror rdfs:seeAlso "https://semiceu.github
   shacl:name "processing error"@en;
   shacl:description "Errors discovered while processing the dataset."@en;
   shacl:path it6:processingError;
-  shacl:maxCount 1;
-  shacl:nodeKind shacl:Literal .
+  shacl:nodeKind shacl:Literal;
+  shacl:maxCount 1 .
 
 mldcatap2:DistributionShape.processingwarning rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Distribution.processingwarning";
   shacl:name "processing warning"@en;
@@ -1097,8 +1100,8 @@ mldcatap2:FlowShape.description rdfs:seeAlso "https://semiceu.github.io/MLDCAT-A
 mldcatap2:FlowShape.externalversion rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.externalversion";
   shacl:name "external version"@en;
   shacl:path it6:externalVersion;
-  shacl:maxCount 1;
-  shacl:nodeKind shacl:Literal .
+  shacl:nodeKind shacl:Literal;
+  shacl:maxCount 1 .
 
 mldcatap2:FlowShape.hasdependency rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Flow.hasdependency";
   shacl:name "has dependency"@en;
@@ -1348,8 +1351,8 @@ mldcatap2:MachineLearningModelShape.hasbibliographicreference rdfs:seeAlso "http
   shacl:name "has bibliographic reference"@en;
   shacl:description "The reference to a paper."@en;
   shacl:path it6:hasBibliographicReference;
-  shacl:class biro:BibliographicReference;
-  shacl:nodeKind shacl:BlankNodeOrIRI .
+  #shacl:nodeKind shacl:BlankNodeOrIRI;
+  shacl:class biro:BibliographicReference .
 
 mldcatap2:MachineLearningModelShape.hasengagement rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#MachineLearningModel.hasengagement";
   shacl:name "has engagement"@en;
@@ -1886,8 +1889,8 @@ mldcatap2:RepositoryShape a shacl:NodeShape;
 mldcatap2:RepositoryShape.hasfile rdfs:seeAlso "https://semiceu.github.io/MLDCAT-AP/releases/2.0.0#Repository.hasfile";
   shacl:path it6:hasFile;
   shacl:name "has file"@en;
-  shacl:class it6:OutputFilePrediction;
-  shacl:nodeKind shacl:BlankNodeOrIRI .
+  #shacl:nodeKind shacl:BlankNodeOrIRI;
+  shacl:class it6:OutputFilePrediction .
 
 
 mldcatap2:ResourceShape a shacl:NodeShape;
